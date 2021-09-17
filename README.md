@@ -4,7 +4,7 @@
 
 You will be working in small teams to create an online quiz game in React.
 
-## requirements
+## Requirements
 
 [] Users should be able start a game with a limited number of players (this can be from one computer or you may wish to consider use of websockets eg. SocketIO
 
@@ -18,13 +18,13 @@ You will be working in small teams to create an online quiz game in React.
 
 ## Your project should meet the following technical requirements:
 
-[]Client to be written using React (Redux is optional)
+[] Client to be written using React (Redux is optional)
 
-[]A small API connected to a database of scores
+[] A small API connected to a database of scores
 
-[]Make use of an open API such as Open Trivia DB
+[] Make use of an open API such as Open Trivia DB
 
-[]Minimum 60% test coverage with an aim of 80%
+[] Minimum 60% test coverage with an aim of 80%
 
 # Installation & Usage
 
