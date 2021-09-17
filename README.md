@@ -36,7 +36,7 @@ You will be working in small teams to create an online quiz game in React.
 
 ###
 
-- [x]  [x]
+- [x] 
 
 ###
 
