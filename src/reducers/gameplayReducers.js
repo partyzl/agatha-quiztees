@@ -10,12 +10,12 @@ const initState =
 
 const gameplayReducer = (state = initState, action) => {
     switch (action.type) {
-        case ANSWER_QUESTION:
-            return {...state, answers: action.payload.answers};
-        case NEXT_QUESTION:
-            return {...state, currentIndex: state.currentIndex + 1};
-        case SET_ERROR:
-            return {...state, error: action.payload}
+        case 'ANSWER_QUESTION':
+            return { ...state, answers: action.payload.answers, score: action.payload.score };
+        case 'NEXT_QUESTION':
+            return { ...state, currentIndex: state.currentIndex + 1 };
+        case 'SET_ERROR':
+            return { ...state, error: action.payload }
         default:
             return state;
     }
