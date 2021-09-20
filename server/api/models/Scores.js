@@ -5,7 +5,7 @@ class Score {
     this.id = data.id
     this.username = data.username
     this.category = data.category
-    this.difficulty = data.difficulty
+    // this.difficulty = data.difficulty
     this.score = data.score
 }
 
@@ -20,6 +20,18 @@ class Score {
                 reject("No scores for you!")
             }
         })
+    }
+
+    static get byUserName() {
+        return new Promise (async (resolve, reject) => {
+            try {
+                const db = await init()
+                const scoreData = await db.query(`INSERT SQL HERE;`);
+                // const scoresByUserName = scoreData
+                resolve(scoresByUserName);
+            } catch (err) {
+                reject("Sorry! Couldn't get that Username!")
+            }
     }
 
     static create (scores){
