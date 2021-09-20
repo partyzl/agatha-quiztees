@@ -26,7 +26,7 @@ class Score {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();
-                await db.query(`INSERT INTO scores etc etc;`); //For when Tegan does the db
+                const scoreData = await db.query(`INSERT INTO scores etc etc;`); //For when Tegan does the db
                 let newScore = new Score(scoreData.rows[0]);
                 resolve (newScore);
                 console.log('Data Saved to Database');
