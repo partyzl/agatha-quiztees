@@ -14,10 +14,10 @@ router.get('/', async (req, res) => {
 })
 
 // Usernane show route
-router.get('/:id', async (req, res) => {
+router.get('/:username', async (req, res) => {
     try {
-        const scoresByUserName = await Score.findById(parseInt(req.params.id))
-        res.json({scoresByUserName})
+        const scoresByUserName = await Score.findByUsername(parseInt(req.params.username))
+        res.status(200).json({scoresByUserName})
     } catch(err) {
         res.status(404).json({err})
     }
