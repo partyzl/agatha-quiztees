@@ -1,4 +1,4 @@
-const serverless = require('serverless-http');
+// const serverless = require('serverless-http');
 
 const express = require('express');
 const cors = require('cors');
@@ -19,4 +19,5 @@ server.use(base_url+'/', scoreRoutes)
 server.get(base_url+'/', (req, res) => res.send('Hello, client!'))
 
 console.log('base'+base_url);
-(!!base_url)? module.exports.handler = serverless(server): module.exports = server;
+module.exports = server;
+// (!!base_url)? module.exports.handler = serverless(server): module.exports = server;
