@@ -57,6 +57,9 @@ const questionsRequest = async (settings) => {
     try {
         const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
         const data = await resp.json();
+        if(data.results.length == 0){ 
+            throw Error('This topic is too esoteric. Please pick a different one')
+        }
         const questionsArr = data.results;
         return questionsArr;
     } catch (err) {
