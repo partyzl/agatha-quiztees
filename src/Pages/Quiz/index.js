@@ -3,10 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
-// will need something here to import questions
-import { Question } from '../../components';
+// will need something here to import questions - like a Question component
 // will need something here to import an action like fetchQuestions from actions
-import { fetchQuestions, localScores, quizSettings } from '../../action';
+import { questionsRequest, localScores, nextQuestion } from '../../actions';
 
 
 const Quiz = () => {
@@ -70,7 +69,7 @@ const Quiz = () => {
         <div>
             <div className='quizContainer'> 
             { toggle && <h3 className='showUser'>{quizData[1][actualUser]}</h3>}
-            { toggle && <Question key={actualQuestion} question={questions[actualQuestion]} selected={changeQuestion} /> }
+            { toggle && <Question key={actualQuestion} question={questions[actualQuestion]} selected={nextQuestion} /> }
         </div>
     );
   }
