@@ -22,19 +22,20 @@ class Score {
         })
     }
 
-    static get byUserName() {
+    static byUserName() {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init()
                 const scoreData = await db.query(`INSERT SQL HERE;`);
-                // const scoresByUserName = scoreData
+                const scoresByUserName = scoreData
                 resolve(scoresByUserName);
             } catch (err) {
                 reject("Sorry! Couldn't get that Username!")
             }
+        })
     }
 
-    static create (scores){
+    static create (scores) {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();
