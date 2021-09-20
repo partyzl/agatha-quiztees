@@ -43,5 +43,10 @@ describe("Score Endpoints", () => {
     };
     const res = await request(api).post("/leaderboard").send(scoreData);
     expect(res.statusCode).toEqual(201);
+
+    expect(res.body).toHaveProperty("id");
+    expect(res.body.username).toEqual("test");
+    expect(res.body.category).toEqual("testy");
+    expect(res.body.score).toEqual(69);
   });
 });
