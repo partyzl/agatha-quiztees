@@ -1,0 +1,25 @@
+services:
+  api:
+    container_name: quiz_scores_test_api
+    environment:
+      - PGUSER=scores-admin
+      - PGHOST=db
+      - PGPASSWORD=scores-admin
+      - PGDATABASE=scores_test
+      - PGPORT=5432
+      - NODE_ENV=test
+    depends_on:
+      - db
+    tty: true
+  db:
+    container_name: quiz_scores_test_db
+    volumes:
+      - "test_db:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_DB=scores_test
+      - POSTGRES_PASSWORD=scores-admin
+volumes:
+  test_db:
+networks:
+  default:
+    name: quiz_app_test
