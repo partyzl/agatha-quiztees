@@ -24,7 +24,7 @@ const loadingScores = () => ({ type: 'LOADING_SCORES' });
 
 const loadScores = (scores) => ({ type: 'LOAD_SCORES', payload: scores });
 
-const setError = (err) => ({ type: 'SET_ERROR', payload: `oh no!${err.message}` });
+const setError = (err) => ({ type: 'SET_ERROR', payload: `oh no! ${err}` });
 
 //----------------------------------------------------------------------------//
 
@@ -34,7 +34,7 @@ const getQuestions = async (dispatch, settings) => {
         const questions = await questionsRequest(settings);
         dispatch(loadQuestions(questions));
     } catch (err) {
-        dispatch(setError(err));
+        dispatch(setError(err.message));
     }
 }
 
@@ -44,7 +44,7 @@ const getScores = async (filter) => {
         const playerScores = await scoresRequest(filter);
         dispatch(loadScores(playerScores));
     } catch (err) {
-        dispatch(setError(err));
+        dispatch(setError(err.message));
     }
 }
 
@@ -72,4 +72,4 @@ const scoresRequest = async (filter) => {
     }
 }
 
-export {getQuestions, getScores, answerQuestion, nextQuestion, endGame};
+export {getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores};
