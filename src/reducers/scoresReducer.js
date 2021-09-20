@@ -1,5 +1,5 @@
 const initState = {
-    playeScores: [],
+    playerScores: [],
     error: null
 }
 
