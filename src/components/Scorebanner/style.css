@@ -1,7 +1,14 @@
+div{
+    font-family: kanit;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+}
+
 .banner{
     background-color: rgb(221, 66, 221);
     width: 30vw;
-    display:flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     border-radius: 10px;
@@ -16,5 +23,8 @@ p{
     background-color: gold;
     border-left: 3px black solid;
     border-radius: 0  10px 10px 0;
+}
 
+.position{
+    font-weight: bold;
 }
