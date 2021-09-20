@@ -34,4 +34,14 @@ describe("Score Endpoints", () => {
     const res = await request(api).get("/sadtest");
     expect(res.statusCode).toEqual(404);
   });
+
+  test("creates a new score", async () => {
+    const scoreData = {
+      username: "test",
+      category: "testy",
+      score: "69",
+    };
+    const res = await request(api).post("/leaderboard").send(scoreData);
+    expect(res.statusCode).toEqual(201);
+  });
 });
