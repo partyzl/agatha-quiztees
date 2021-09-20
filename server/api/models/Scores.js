@@ -14,7 +14,7 @@ class Score {
             try {
                 const db = await init()
                 const scoreData = await db.query(`INSERT SQL HERE;`); //For when Tegan does the db
-                const scores = scoreData.rowsmap(s => new Score({ ...s, id: s._id }))
+                const scores = scoreData.rows.map(s => new Score({ ...s, id: s._id }))
                 resolve(scores);
             } catch (err) {
                 reject("No scores for you!")
@@ -22,19 +22,20 @@ class Score {
         })
     }
 
-    static get byUserName() {
+    static byUserName() {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init()
                 const scoreData = await db.query(`INSERT SQL HERE;`);
-                // const scoresByUserName = scoreData
+                const scoresByUserName = scoreData.rows.map(s => new Score({ ...s, id: s._id }))
                 resolve(scoresByUserName);
             } catch (err) {
                 reject("Sorry! Couldn't get that Username!")
             }
+        })
     }
 
-    static create (scores){
+    static create (scores) {
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init();

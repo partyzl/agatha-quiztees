@@ -23,7 +23,7 @@ services:
     image: postgres:latest
     volumes:
       - "dbdata:/var/lib/postgresql/data"
-      - "./db:/docker-entrypoint-initdb.d/:ro"
+      - "./server/dbmigrations:/docker-entrypoint-initdb.d/:ro"
     environment: 
       - POSTGRES_DB=scores
       - POSTGRES_USER=scores-admin
