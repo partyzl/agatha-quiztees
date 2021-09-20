@@ -13,6 +13,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+// Usernane show route
+router.get('/:id', async (req, res) => {
+    try {
+        const scoresByUserName = await Score.findById(parseInt(req.params.id))
+        res.json({scoresByUserName})
+    } catch(err) {
+        res.status(404).json({err})
+    }
+})
+
 // Create score route
 router.post('/', async (req, res) => {
     try {
