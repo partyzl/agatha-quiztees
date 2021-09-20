@@ -21,6 +21,31 @@ const Quiz = () => {
     const questions = useSelector(state=> state.questions);
     const scores = useSelector(state=> state.scores);
     
+    //Should filter set of questions by category selected and across length of question array, and dispatch questions by category ID and levels
+    useEffect(() => {
+        const filteredQuestObj = categoryData.filter( x => x.category == quizData[0]);
+        const categoryId = filteredQuestObj[0].id;
+        let variable = [{ name:'anonymous', score:0 }];
+        if(quizData[1].length > 0) {
+            variable = quizData[1].map( x => ({ name:x, score:0 }))
+        } 
+        else dispatch(quizSettings(quizData[0], ['anonymous'] , quizData[2]));
+        dispatch(localScores(variable));
+        dispatch(fetchQuestions(categoryId, level));
+        setToggle(true);
+    }, [])
+    
+    //Should set state in line 14 to false if this is a persons first time
+    useEffect(()=>{
+        if (isFirstRun) {
+            setIsFirstRun(false);
+            return;
+          }
+        else {
+            setToggle(true);
+        }
+    },[toggle])
+    
     // Should change question upon answer submission, and increase score based on correct answer
     const changeQuestion = (answer) => {
         if (questions[actualQuestion].correct_answer == answer) {
@@ -30,7 +55,7 @@ const Quiz = () => {
         } 
         
         if((actualQuestion+1)>=10){
-            history.push('/scores/local');
+            history.push('/scores/local'); //stores score locally
         } else {
             setNextUser();
             setActualQuestion(prev => prev+1)
@@ -38,11 +63,11 @@ const Quiz = () => {
         }
     }
     
-  
-    
     return (
         <div>
-            
+            <div className='quizContainer'> 
+            { toggle && <h3 className='showUser'>{quizData[1][actualUser]}</h3>}
+            { toggle && <Question key={actualQuestion} question={questions[actualQuestion]} selected={changeQuestion} /> }
         </div>
     );
   }
