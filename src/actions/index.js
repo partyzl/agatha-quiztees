@@ -1,3 +1,4 @@
+import axios from 'axios';
 // --------------------for gameplayReducer-----------------------------------//
 const answerQuestion = (answers, score, stats) => ({
     type: 'ANSWER_QUESTION',
@@ -78,4 +79,22 @@ const scoresRequest = async (filter) => {
     }
 }
 
-export {getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores};
+const fetchCategories = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get('https://opentdb.com/api_category.php')
+            let newCategoryArray = data.trivia_categories.map((data) => ({id: data.id, category: data.name}))
+            dispatch ({
+                type: 'UPDATE_CATEGORY',
+                payload: newCategoryArray
+            })
+        } catch (err) {
+            dispatch ({
+                type: 'SET_ERROR',
+                payload: err
+            })
+        }
+    }
+}
+
+export {getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores, fetchCategories};
