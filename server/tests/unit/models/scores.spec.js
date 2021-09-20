@@ -41,5 +41,21 @@ describe("Scores", () => {
       expect(result.score).toEqual(3);
       expect(result).toHaveProperty("username");
     });
+
+    // describe("test filter by username", () => {
+    //   test("returns scores with particular username", async () => {
+    //     const scoreData = { username: "test", category: "soup", score: 69 };
+    //     const username = scoreData.username;
+    //     jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [scoreData] });
+
+    //     const user = await Score.findByUsername(username);
+
+    //     expect(user).toBeInstanceOf(Score);
+    //     //expect(user.id).toEqual(7);
+    //     expect(user.username).toEqual("test");
+    //     expect(user.category).toEqual(soup);
+    //     expect(user.score).toEqual(69);
+    //   });
+    // });
   });
 });
