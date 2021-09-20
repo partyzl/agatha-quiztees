@@ -26,6 +26,9 @@ const loadScores = (scores) => ({ type: 'LOAD_SCORES', payload: scores });
 
 const setError = (err) => ({ type: 'SET_ERROR', payload: `oh no! ${err}` });
 
+// added this for the Question Page render
+export const localScores = (score) => ({ type: 'UPDATE_LOCAL_SCORES', payload: score })
+
 //----------------------------------------------------------------------------//
 
 const getQuestions = async (dispatch, settings) => {
