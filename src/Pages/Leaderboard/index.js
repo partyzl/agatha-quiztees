@@ -80,7 +80,7 @@ const Leaderboard = () => {
 				</tr>
 			</thead>
 			<tbody>
-                {score && renderRows()}
+                	    {score && renderRows()}
 			</tbody>
 		</table>
                         
