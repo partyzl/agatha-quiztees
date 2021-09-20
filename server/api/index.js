@@ -16,7 +16,7 @@ const scoreRoutes = require('./controllers/scores')
 server.use(base_url+'/', scoreRoutes)
 
 // Root
-server.get(base_url+'/', (req, res) => res.send('Hello, client!'))
+server.get(base_url+'/', (req, res) => res.send('Greetings, traveller!!'))
 
 console.log('base'+base_url);
 module.exports = server;
