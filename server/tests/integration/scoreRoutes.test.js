@@ -29,4 +29,9 @@ describe("Score Endpoints", () => {
     expect(res.statusCode).toEqual(200);
     expect(res.body.length).toEqual(6);
   });
+
+  test("returns fake endpoints with 404", async () => {
+    const res = await request(api).get("/sadtest");
+    expect(res.statusCode).toEqual(404);
+  });
 });
