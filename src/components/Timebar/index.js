@@ -5,7 +5,8 @@ function Timebar({duration, endAction}) {
     var style = {
         '--duration': Math.floor(Number(duration)/1000)
     };
-    
+
+    // time set in Question Component
     useEffect(()=>{
         const timer = setTimeout(() => {
             endAction('Timeout called!');
