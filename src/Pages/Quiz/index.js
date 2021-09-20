@@ -21,13 +21,30 @@ const Quiz = () => {
     const questions = useSelector(state=> state.questions);
     const scores = useSelector(state=> state.scores);
     
+    // Should change question upon answer submission, and increase score based on correct answer
+    const changeQuestion = (answer) => {
+        if (questions[actualQuestion].correct_answer == answer) {
+            let index = scores.findIndex( x => quizData[1][actualUser] === x.name)
+            scores[index].score++
+            dispatch(localScores(scores))
+        } 
+        
+        if((actualQuestion+1)>=10){
+            history.push('/scores/local');
+        } else {
+            setNextUser();
+            setActualQuestion(prev => prev+1)
+            setToggle(true)
+        }
     }
+    
+  
     
     return (
         <div>
             
         </div>
     );
-
+  }
 
 export default Quiz;
