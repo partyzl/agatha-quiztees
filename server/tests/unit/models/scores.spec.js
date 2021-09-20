@@ -29,11 +29,16 @@ describe("Scores", () => {
 
   describe("create", () => {
     test("it resolves with scores data on successful db enquiry", async () => {
-      let scoresData = { username: "BowlOfSoup", score: 3 };
-      jest
-        .spyOn(db, "query")
-        .mockResolvedValueOnce({ rows: [{ ...scoresData, id: 1 }] });
-      const result = await Scores.create(scoresData);
+      let scoresData = { username: "BowlOfSoup", category: "test", score: 3 };
+      let scoreID = { ...scoresData, id: 12 };
+      jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [scoreID] });
+      const result = await Score.create(scoresData);
+
+      expect(result).toBeInstanceOf(Score);
+      expect(result.id).toEqual(12);
+      expect(result.username).toEqual("BowlOfSoup");
+      expect(result.category).toEqual("test");
+      expect(result.score).toEqual(3);
       expect(result).toHaveProperty("username");
     });
   });
