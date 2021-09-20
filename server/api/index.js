@@ -8,7 +8,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const base_url = process.env.BASE_URL || '';
+const base_url = process.env.BASE_URL // ||  'will need to specify server here';
 
 const scoreRoutes = require('./controllers/scores')
 

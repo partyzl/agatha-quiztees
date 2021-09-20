@@ -32,7 +32,7 @@ describe('scores controller', () => {
           let testScore = {
               username : "Test",
               category : "Test Category",
-              difficulty : "hard",
+            //   difficulty : "hard",
               score : 8
             }
             jest.spyOn(scores, 'create')
