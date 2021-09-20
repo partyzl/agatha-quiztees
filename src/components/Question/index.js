@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Timebar from '../Timebar';
 import './style.css'
 
-const renderHTML = (rawHTML,type) => React.createElement(type, { dangerouslySetInnerHTML: { __html: rawHTML } });
-
 function Question({question, selected}) {
     const [options, setOptions] = useState([]);
     const [input, setInput] = useState('');
