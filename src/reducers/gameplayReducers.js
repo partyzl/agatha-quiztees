@@ -3,8 +3,7 @@ const initState =
     answers: [],
     score: [],
     stats: [],
-    currentIndex: 0,
-    error: null
+    currentIndex: 0
 }
 
 
@@ -14,8 +13,6 @@ const gameplayReducer = (state = initState, action) => {
             return { ...state, answers: action.payload.answers, score: action.payload.score };
         case 'NEXT_QUESTION':
             return { ...state, currentIndex: state.currentIndex + 1 };
-        case 'SET_ERROR':
-            return { ...state, error: action.payload }
         default:
             return state;
     }
