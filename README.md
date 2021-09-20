@@ -8,13 +8,13 @@ You will be working in small teams to create an online quiz game in React.
 
 [] Users should be able start a game with a limited number of players (this can be from one computer or you may wish to consider use of websockets eg. SocketIO
 
-[]Users should be able to choose the level and topic for their quiz game.
+[] Users should be able to choose the level and topic for their quiz game.
 
-[]Users should take it in turns to answer trivia questions and after a set number of turns a winner should be declared.
+[] Users should take it in turns to answer trivia questions and after a set number of turns a winner should be declared.
 
-[]Users scores should be stored in a database at the end of the game
+[] Users scores should be stored in a database at the end of the game
 
-[]Users should be able to view a high scores list
+[] Users should be able to view a high scores list
 
 ## Your project should meet the following technical requirements:
 
