@@ -6,45 +6,45 @@ const answerQuestion = (answers, score, stats) => ({
         score: score,
         stats: stats
     }
-})
+});
 
-const nextQuestion = () => ({ type: 'NEXT_QUESTION' })
+const nextQuestion = () => ({ type: 'NEXT_QUESTION' });
 
 // --------------------for questionsReducer--------------------------//
 
-const loadingQuestions = (settings) => ({ type: 'LOADING_QUESTIONS', payload: settings })
+const loadingQuestions = (settings) => ({ type: 'LOADING_QUESTIONS', payload: settings });
 
-const loadQuestions = (questions) => ({ type: 'LOAD_QUESTIONS', payload: questions })
+const loadQuestions = (questions) => ({ type: 'LOAD_QUESTIONS', payload: questions });
 
-const endGame = () => ({ type: 'END_GAME' })
+const endGame = () => ({ type: 'END_GAME' });
 
 // --------------------for scoresReducer------------------------------------//
 
-const loadingScores = () => ({ type: 'LOADING_SCORES' })
+const loadingScores = () => ({ type: 'LOADING_SCORES' });
 
-const loadScores = (scores) => ({ type: 'LOAD_SCORES', payload: scores })
+const loadScores = (scores) => ({ type: 'LOAD_SCORES', payload: scores });
 
-const setError = (err) => ({ type: 'SET_ERROR', payload: `oh no!${err.message}` })
+const setError = (err) => ({ type: 'SET_ERROR', payload: `oh no!${err.message}` });
 
 //----------------------------------------------------------------------------//
 
 const getQuestions = async (dispatch, settings) => {
     try {
-        dispatch(loadingQuestions(settings))
-        const questions = await questionsRequest(settings)
-        dispatch(loadQuestions(questions))
+        dispatch(loadingQuestions(settings));
+        const questions = await questionsRequest(settings);
+        dispatch(loadQuestions(questions));
     } catch (err) {
-        dispatch(setError(err))
+        dispatch(setError(err));
     }
 }
 
 const getScores = async (filter) => {
     try {
-        dispatch(loadingScores)
-        const playerScores = await scoresRequest(filter)
-        dispatch(loadScores(playerScores))
+        dispatch(loadingScores);
+        const playerScores = await scoresRequest(filter);
+        dispatch(loadScores(playerScores));
     } catch (err) {
-        dispatch(setError(err))
+        dispatch(setError(err));
     }
 }
 
@@ -52,23 +52,23 @@ const getScores = async (filter) => {
 
 const questionsRequest = async (settings) => {
     try {
-        const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`)
-        const data = await resp.json()
-        const questionsArr = data.results
-        return questionsArr
+        const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
+        const data = await resp.json();
+        const questionsArr = data.results;
+        return questionsArr;
     } catch (err) {
-        throw new Error('failed to fetch questions')
+        throw new Error('failed to fetch questions');
     }
 }
 
 const scoresRequest = async (filter) => {
     try {
-        const resp = await fetch(filter ? `insert link to deployed server/${filter}` : 'insert link')
-        const data = await resp.json()
+        const resp = await fetch(filter ? `insert link to deployed server/${filter}` : 'insert link');
+        const data = await resp.json();
         //expecting an array to be returned from API
-        return data
+        return data;
     } catch (err) {
-        throw new Error('failed to fetch scores')
+        throw new Error('failed to fetch scores');
     }
 }
 
