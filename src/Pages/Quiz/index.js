@@ -4,7 +4,10 @@ import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 // will need something here to import questions
+import { Question } from '../../components';
 // will need something here to import an action like fetchQuestions from actions
+import { fetchQuestions, localScores, quizSettings } from '../../action';
+
 
 const Quiz = () => {
     const dispatch = useDispatch();
