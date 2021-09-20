@@ -6,7 +6,7 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const scoreRoutes = require("./api/controllers/scores");
+const scoreRoutes = require("./controllers/scores");
 
 server.use("/leaderboard", scoreRoutes);
 
