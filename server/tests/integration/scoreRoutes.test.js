@@ -23,4 +23,10 @@ describe("Score Endpoints", () => {
     expect(res.statusCode).toEqual(200);
     expect(res.text).toEqual("Greetings, traveller!!");
   });
+
+  test("returns all scores on leaderboard", async () => {
+    const res = await request(api).get("/leaderboard");
+    expect(res.statusCode).toEqual(200);
+    expect(res.body.length).toEqual(6);
+  });
 });
