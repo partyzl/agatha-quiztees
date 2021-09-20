@@ -9,7 +9,7 @@ const rootReducer = combineReducers(
     {
         gameplay: gameplayReducer,
         quizInfo: questionsReducer,
-        leaderBoard: scoresReducer, 
+        leaderboard: scoresReducer, 
         error: errorReducer
     })
 
