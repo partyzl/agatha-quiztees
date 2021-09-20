@@ -36,7 +36,8 @@ function App() {
           <Route path="/joinquiz">
             <JoinQuiz />
           </Route> */
-          // commented out as they will error until they are being used!} 
+          // commented out as they will error until they are being used! 
+        } 
         </Switch>
       </main>
     </div>
