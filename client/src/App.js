@@ -1,4 +1,5 @@
 import React from "react";
+import { spring, AnimatedRoute } from "react-router-transition";
 import { Switch, Route } from "react-router-dom";
 import { Landing } from "./Pages";
 import { Setup } from "./Pages";
@@ -8,12 +9,11 @@ import { Results } from "./Pages";
 import { Leaderboard } from "./Pages";
 import { JoinQuiz } from "./Pages";
 
-
 function App() {
   return (
     <div id="app">
       <main>
-        <Switch>
+        <Switch atEnter>
           <Route exact path="/">
             <Landing />
           </Route>
@@ -22,7 +22,7 @@ function App() {
           </Route>
           <Route path="/waitingroom">
             <WaitingRoom />
-          </Route> 
+          </Route>
           <Route path="/quiz">
             <Quiz />
           </Route>
