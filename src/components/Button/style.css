@@ -15,7 +15,19 @@
 	background-color: black;
 }
 
-.app-button:hover:focus:active {
+.app-button:hover {
+    color: white;
+    background-color: goldenrod;
+    transition: 0.5s;
+}
+
+.app-button:active {
+    color: white;
+    background-color: goldenrod;
+    transition: 0.5s;
+}
+
+.app-button:focus {
     color: white;
     background-color: goldenrod;
     transition: 0.5s;
