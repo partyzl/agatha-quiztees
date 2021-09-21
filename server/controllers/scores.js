@@ -23,11 +23,14 @@ async function index(req, res) {
 // Create score route
 async function create(req, res) {
   try {
-    const scores = await Score.create(req.body.scores);
+    const scores = await Score.create(req.body);
     res.status(201).json(scores);
   } catch (err) {
     res.status(500).json({ err });
   }
 }
 
-module.exports = router;
+module.exports = {
+  index,
+  create,
+};
