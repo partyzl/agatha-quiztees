@@ -1,42 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
-/* .app-button {
-	text-transform: uppercase;
-	letter-spacing: 0.4em;
-	font-size: 30px;
-	position: relative;
-	text-decoration: none;
-	padding: 1em;
-	box-shadow: inset 0 0 0 1px;
-	min-width: 340px;
-	text-align: center;
-    font-family: 'Poiret One' !important;
-	color: goldenrod;
-	background-color: rgba(0, 0, 0, 0);
-	border: 20px double goldenrod;
-} */
-
 .app-button { 
+	display: flex;  
+	flex-direction: column;
 	text-transform: uppercase;
 	letter-spacing: 0.4em;
 	font-size: 30px;
 	padding: 1em;
+	width: 30%;
 	min-width: 340px;
 	text-align: center;
+	text-decoration: none;
     font-family: 'Poiret One' !important;
 	color: goldenrod;
-	/* border: 3px solid; */
-	background-color: rgba(0, 0, 0);
+	background: transparent;
 	position: relative;
+	transition: 0.5s;
   }
   
   .app-button:before, .app-button:after {
-	border: 5px solid;
+	border: 4px solid;
   }
   
   .app-button:before, .app-button:after {
 	content: "";
-	position: absolute;  
+	position: absolute; 
+	text-align: center !important; 
   }
   
   .app-button:before {
@@ -44,6 +33,7 @@
 	right: -2px;
 	bottom: -15px;
 	left: -2px;
+	text-align: center !important;
   }
   
   .app-button:after {
@@ -51,22 +41,20 @@
 	right: -15px;
 	bottom: -2px;
 	left: -15px;
+	text-align: center !important;
   }
 
 .app-button:hover {
     color: white;
     background-color: goldenrod;
-    transition: 0.5s;
 }
 
 .app-button:active {
     color: white;
     background-color: goldenrod;
-    transition: 0.5s;
 }
 
 .app-button:focus {
     color: white;
     background-color: goldenrod;
-    transition: 0.5s;
 }
