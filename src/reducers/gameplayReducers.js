@@ -15,7 +15,7 @@ const gameplayReducer = (state = initState, action) => {
                 {
                     ...state,
                     answers: [...state.answers, action.payload.answer],
-                    score: action.payload.score, 
+                    score: action.payload.score,
                     stats: action.payload.stats,
                     answered: true
                 }

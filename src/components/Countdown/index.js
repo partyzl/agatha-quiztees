@@ -15,13 +15,12 @@ const Countdown = ({ duration, interval, delay, reset }) => {
         if (number > 0) {
             setTimeout(() => setNumber(existing => existing - 1), interval)
         } else {
-            if (!answered) { dispatch(answerQuestion(null, [], [])) }
+            if (!answered) { dispatch(answerQuestion('', [], [])) }
             setTimeout(() => dispatch(nextQuestion()), delay)
         }
     }, [number])
 
     useEffect(() => {
-        console.log('firing')
         setNumber(duration)
     }, [reset])
 

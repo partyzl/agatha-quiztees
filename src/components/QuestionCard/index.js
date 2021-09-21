@@ -9,7 +9,7 @@ const QuestionCard = ({ round }) => {
     const answered = useSelector(state => state.gameplay.answered)
 
     // const [answered, setAnswered] = useState(false)
-    const [selection, setSelection] = useState()
+    const [selection, setSelection] = useState(null)
     const [optionElements, setOptionElements] = useState()
 
     const dispatch = useDispatch()
@@ -17,16 +17,14 @@ const QuestionCard = ({ round }) => {
     const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
+        if (selection){ dispatch(answerQuestion(''))}
         const renderOptions = () => {
             return options.map(choice => <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`} disabled={answered} onClick={clickHandler}>{choice}</button>)
         }
         setOptionElements(renderOptions)
-    }, [answered])
 
-    //not needed if make answered global
-    // useEffect(() => {
-    //     setAnswered(false)
-    // }, [round])
+        return () => setSelection(null)
+    }, [selection, answered, round])
 
     function showAnswer(option) {
         const answeredClassName = option == round.correct_answer ? 'correct' : 'incorrect';
@@ -44,13 +42,8 @@ const QuestionCard = ({ round }) => {
         return classStyling
     }
 
-    function prefix(index) {
-        //puts either a b c or d infront of option
-    }
-
     function clickHandler(e) {
         setSelection(e.target.innerText)
-        if (answered){ dispatch(answerQuestion(selection, [], []))}
     }
 
     return (

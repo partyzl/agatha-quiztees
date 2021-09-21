@@ -27,10 +27,10 @@ function App() {
           <Route path="/quiz">
             <Quiz />
           </Route>
-          {/* <Route path="/results">
+          <Route path="/results">
             <Results />
           </Route>
-          <Route path="/leaderboard">
+          {/* <Route path="/leaderboard">
             <Leaderboard />
           </Route>
           <Route path="/joinquiz">
