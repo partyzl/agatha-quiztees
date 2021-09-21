@@ -1,5 +1,5 @@
 import React from 'react';
-import "./style.css";
+
 
 const Leaderboardlist = (data) => {
   data.map((position,username, score, i) => (
@@ -10,6 +10,8 @@ const Leaderboardlist = (data) => {
         username={username}
         score={score}
         key={i}
+
+        {/* change key to position? */}
 
       </Scorebanner>
     </>
