@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "./styles.css"
+import "./styles.css";
 export default class SimpleSlider extends Component {
   render() {
     const settings = {
@@ -10,6 +10,7 @@ export default class SimpleSlider extends Component {
       slidesToScroll: 1,
       accessibility: true,
       autoplay: true,
+      arrows: false,
     };
     return (
       <div>
