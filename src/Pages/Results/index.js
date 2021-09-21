@@ -1,8 +1,13 @@
-import React from 'react'
-
+import { Button } from "bootstrap";
+import React from "react";
 
 const Results = () => {
-    return <div>results page</div>
-}
+  return (
+    <>
+      <Button />
+      <Button />
+    </>
+  );
+};
 
-export default Results
+export default Results;
