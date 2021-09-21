@@ -25,7 +25,6 @@
   .app-button:before, .app-button:after {
 	content: "";
 	position: absolute; 
-	text-align: center !important;
 }
   
   .app-button:before {
@@ -33,7 +32,6 @@
 	right: -2px;
 	bottom: -15px;
 	left: -2px;
-	text-align: center !important;
   }
   
   .app-button:after {
@@ -41,7 +39,6 @@
 	right: -15px;
 	bottom: -2px;
 	left: -15px;
-	text-align: center !important;
   }
 
 .app-button:hover {
