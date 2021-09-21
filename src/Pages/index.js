@@ -4,3 +4,4 @@ export { default as Leaderboard } from "./Leaderboard";
 export { default as Quiz } from "./Quiz";
 export { default as Setup } from "./Setup";
 export { default as WaitingRoom } from "./WaitingRoom";
+export { default as Results } from "./Results"
