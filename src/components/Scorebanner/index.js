@@ -2,6 +2,11 @@ import React from 'react';
 import "./style.css";
 
 const Scorebanner = () => {
+
+    let position;
+    let username;
+    let score;
+    
     return (
 
         <div class='banner'>

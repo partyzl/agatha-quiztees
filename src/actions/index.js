@@ -38,7 +38,7 @@ const getQuestions = async (dispatch, settings) => {
     }
 }
 
-const getScores = async (filter) => {
+const getScores = async (dispatch, filter) => {
     try {
         dispatch(loadingScores);
         const playerScores = await scoresRequest(filter);
@@ -52,7 +52,8 @@ const getScores = async (filter) => {
 
 const questionsRequest = async (settings) => {
     try {
-        const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
+        // const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
+        const resp = await fetch('https://opentdb.com/api.php?amount=10&category=&difficulty=&type=')
         const data = await resp.json();
         const questionsArr = data.results;
         return questionsArr;
@@ -72,4 +73,4 @@ const scoresRequest = async (filter) => {
     }
 }
 
-export {getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores};
+export { getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores };
