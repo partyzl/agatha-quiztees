@@ -1,7 +1,8 @@
 import React from 'react';
+import './style.css';
 
 const Button = ({onClick, value}) => ( 
-    <button className="app-button"   onClick={onClick}>
+    <button className="app-button" onClick={onClick}>
         {value}
     </button>
     );
