@@ -1,0 +1,25 @@
+services:
+  api:
+    container_name: quiz_scores_api
+    ports:
+      - 3000:3000
+    environment:
+      - PGUSER=scores-admin
+      - PGHOST=db
+      - PGPASSWORD=scores-admin
+      - PGDATABASE=scores
+      - PGPORT=5432
+      - NODE_ENV=development
+    depends_on:
+      - db
+    command: bash -c "npm install && npm run dev"
+  db:
+    container_name: quiz_scores_db
+    volumes:
+      - "dbdata:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_DB=scores
+      - POSTGRES_USER=scores-admin
+      - POSTGRES_PASSWORD=scores-admin
+volumes:
+  dbdata:
