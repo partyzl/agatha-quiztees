@@ -9,15 +9,12 @@ services:
       - PGPASSWORD=scores-admin
       - PGDATABASE=scores
       - PGPORT=5432
-      - DATABASE_URL=postgres://scores-admin:scores-admin@db:5432/scores
       - NODE_ENV=development
     depends_on:
       - db
     command: bash -c "npm install && npm run dev"
   db:
     container_name: quiz_scores_db
-    ports:
-      - "5432:5432"
     volumes:
       - "dbdata:/var/lib/postgresql/data"
     environment:
@@ -26,6 +23,3 @@ services:
       - POSTGRES_PASSWORD=scores-admin
 volumes:
   dbdata:
-networks:
-  default:
-    name: quiz_app

@@ -2,11 +2,11 @@ version: "3"
 services:
   api:
     image: node:14.17.2
-    working_dir: /server
+    working_dir: /code
     volumes:
       - type: bind
         source: ./server
-        target: /server
+        target: /code
 
   db:
     image: postgres:latest
