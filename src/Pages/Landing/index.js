@@ -28,12 +28,20 @@ const Landing = () => {
       <Header />
       <div className="container align-items-center justify-content-center">
         <SimpleSlider />
-          <div class="col-4">
+        <div>
+          <div className="buttonContainer">
             <Button value="Single Player" onClick={singlePlayer} />
+          </div>
+          <div className="buttonContainer">
             <Button value="Host Quiz" onClick={hostQuiz} />
+          </div>
+          <div className="buttonContainer">
             <Button value="Join Quiz" onClick={joinQuiz} />
+          </div>
+          <div className="buttonContainer">
             <Button value="Leaderboard" onClick={leaderboard} />
           </div>
+        </div>
       </div>
       <Footer />
     </>
