@@ -4,13 +4,13 @@ import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
 import { SimpleSlider } from "../../components";
 import { Button } from "../../components";
-import './style.css';
+import "./style.css";
 
 const Landing = () => {
   let history = useHistory();
 
   const hostQuiz = () => {
-    history.push("/quiz");
+    history.push("/settings");
   };
 
   const joinQuiz = () => {
@@ -20,7 +20,7 @@ const Landing = () => {
     history.push("/leaderboard");
   };
   const singlePlayer = () => {
-    history.push("/quiz");
+    history.push("/settings");
   };
 
   return (
