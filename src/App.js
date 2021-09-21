@@ -13,9 +13,9 @@ function App() {
     <div id="app">
       <main>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Landing />
-          </Route>
+          </Route> */}
           <Route path="/setup">
             <Setup />
           </Route>

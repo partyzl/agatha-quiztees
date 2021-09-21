@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import "./styles.css";
+
 export default class SimpleSlider extends Component {
   render() {
     const settings = {

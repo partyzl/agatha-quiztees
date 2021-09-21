@@ -10,6 +10,9 @@ const initState =
 
 const gameplayReducer = (state = initState, action) => {
     switch (action.type) {
+        case 'LOADING_QUESTIONS':
+            return {...state, answers: [], score: [], stats: [], currentIndex: 0, answered: false}
+
         case 'ANSWER_QUESTION':
             return (
                 {

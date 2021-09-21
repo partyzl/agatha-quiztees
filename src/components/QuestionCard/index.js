@@ -8,12 +8,10 @@ const QuestionCard = ({ round }) => {
 
     const answered = useSelector(state => state.gameplay.answered)
 
-    // const [answered, setAnswered] = useState(false)
     const [selection, setSelection] = useState(null)
     const [optionElements, setOptionElements] = useState()
 
     const dispatch = useDispatch()
-  
     const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
@@ -22,7 +20,6 @@ const QuestionCard = ({ round }) => {
             return options.map(choice => <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`} disabled={answered} onClick={clickHandler}>{choice}</button>)
         }
         setOptionElements(renderOptions)
-
         return () => setSelection(null)
     }, [selection, answered, round])
 
@@ -38,7 +35,7 @@ const QuestionCard = ({ round }) => {
     }
 
     function isSelected(option) {
-        const classStyling = option == selection ? 'selected' : '';
+        const classStyling = option == selection? 'selected' : '';
         return classStyling
     }
 
