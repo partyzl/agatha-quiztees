@@ -25,6 +25,7 @@ const Leaderboard = () => {
         });
         console.log(array);
         setLeaderboard(array);
+        //console.log(leaderboard);
       }
     } catch (error) {
       console.warn(error);
