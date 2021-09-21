@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { answerQuestion } from '../../actions'
 import './style.css'
+
+
 const QuestionCard = ({ round }) => {
 
-    const [answered, setanswered] = useState(false)
+    const answered = useSelector(state => state.gameplay.answered)
+
+    // const [answered, setAnswered] = useState(false)
     const [selection, setSelection] = useState()
     const [optionElements, setOptionElements] = useState()
 
-    // const dispatch = useDispatch()
-
+    const dispatch = useDispatch()
+  
     const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
         const renderOptions = () => {
-            return options.map(choice => <button className={showAnswer(choice)} onClick={clickHandler}>{choice}</button>)
+            return options.map(choice => <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`} disabled={answered} onClick={clickHandler}>{choice}</button>)
         }
         setOptionElements(renderOptions)
     }, [answered])
+
+    //not needed if make answered global
+    // useEffect(() => {
+    //     setAnswered(false)
+    // }, [round])
 
     function showAnswer(option) {
         const answeredClassName = option == round.correct_answer ? 'correct' : 'incorrect';
@@ -30,15 +39,18 @@ const QuestionCard = ({ round }) => {
         return randomised
     }
 
-    function prefix(index){
+    function isSelected(option) {
+        const classStyling = option == selection ? 'selected' : '';
+        return classStyling
+    }
+
+    function prefix(index) {
         //puts either a b c or d infront of option
     }
 
     function clickHandler(e) {
-        console.log('answered!')
-        setanswered(true)
-        // setPlayerAnswer(e.target.textContent)
-        // dispatch(answerQuestion(playerAnswer))
+        setSelection(e.target.innerText)
+        if (answered){ dispatch(answerQuestion(selection, [], []))}
     }
 
     return (

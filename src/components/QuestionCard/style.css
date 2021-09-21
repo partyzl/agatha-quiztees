@@ -1,7 +1,16 @@
+
+.option {
+    border: none
+}
+
 .correct{
     background-color: green;
 }
 
 .incorrect{
     background-color: red;
+}
+
+.selected{
+    border:solid gold
 }

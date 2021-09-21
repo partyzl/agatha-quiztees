@@ -1,44 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { QuestionCard } from '../../components';
+import { Countdown, QuestionCard } from '../../components';
 import { getQuestions } from '../../actions';
 
 const Quiz = () => {
     //temporary
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
+
+    const currentIndex = useSelector(state => state.gameplay.currentIndex)
+    const questions = useSelector(state => state.quizInfo.questions)
+
+    const [currentQuestion, setCurrentQuestion] = useState(questions[currentIndex])
+    const [reset, setReset] = useState(false)
+
     // getQuestions(dispatch)
-
-    // const currentIndex = useSelector(state => state.gameplay.currentIndex)
-    // const question = useSelector(state => state.quizInfo.questions[currentIndex])
-    // const questions = useSelector(state => state.quizInfo.questions)
-
-    // const [currentQuestion, setCurrentQuestion] = useState()
-
-    // console.log(question)
-    // useEffect(() => {
-    //     console.log('hey i am happening')
-    //     setCurrentQuestion(question)
-    // }, [questions])
+    useEffect(() => {
+        getQuestions(dispatch)
+    }, [])
 
 
-    const question =
-    {
-        category: "Entertainment: Video Games",
-        type: "multiple",
-        difficulty: "easy",
-        question: "What year was the game Team Fortress 2 released?",
-        correct_answer: "2007",
-        incorrect_answers: [
-            "2009",
-            "2005",
-            "2010"
-        ]
-    }
-
+    useEffect(() => {
+        setCurrentQuestion(questions[currentIndex])
+        return () => setReset(existing => existing ? false : true)
+    }, [currentIndex])
 
     return (
         <div>
-            <QuestionCard round={question} />
+            <Countdown duration={3} interval={1000} delay={3000} reset={reset} />
+            <QuestionCard round={currentQuestion} />
+            <span>{currentIndex}</span>
         </div >
     );
 }

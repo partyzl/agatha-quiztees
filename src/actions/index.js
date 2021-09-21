@@ -1,8 +1,8 @@
 // --------------------for gameplayReducer-----------------------------------//
-const answerQuestion = (answers, score, stats) => ({
+const answerQuestion = (answer, score, stats) => ({
     type: 'ANSWER_QUESTION',
     payload: {
-        answers: answers,
+        answer: answer,
         score: score,
         stats: stats
     }
