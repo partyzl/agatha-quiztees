@@ -4,7 +4,7 @@ import { Landing } from "./Pages";
 import { Setup } from "./Pages";
 import { WaitingRoom } from "./Pages";
 import { Quiz } from "./Pages";
-// import { Results } from "./Pages";
+import { Results } from "./Pages";
 import { Leaderboard } from "./Pages";
 import { JoinQuiz } from "./Pages";
 
@@ -14,21 +14,21 @@ function App() {
     <div id="app">
       <main>
         <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Landing />
-          </Route>
+          </Route> */}
           <Route path="/setup">
             <Setup />
           </Route>
           <Route path="/waitingroom">
             <WaitingRoom />
-          </Route>
+          </Route> 
           <Route path="/quiz">
             <Quiz />
           </Route>
-          {/* <Route path="/results">
+          <Route path="/results">
             <Results />
-          </Route> */}
+          </Route>
           <Route path="/leaderboard">
             <Leaderboard />
           </Route>

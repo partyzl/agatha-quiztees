@@ -1,5 +1,14 @@
 
 // --------------------for gameplayReducer-----------------------------------//
+<<<<<<< HEAD
+const answerQuestion = (answer, score, stats) => ({
+    type: 'ANSWER_QUESTION',
+    payload: {
+        answer: answer,
+        score: score,
+        stats: stats
+    }
+=======
 const answerQuestion = (answers, score, stats) => ({
   type: "ANSWER_QUESTION",
   payload: {
@@ -7,6 +16,7 @@ const answerQuestion = (answers, score, stats) => ({
     score: score,
     stats: stats,
   },
+>>>>>>> Staging
 });
 
 const nextQuestion = () => ({ type: "NEXT_QUESTION" });
@@ -45,6 +55,17 @@ const getQuestions = async (dispatch, settings) => {
   }
 };
 
+<<<<<<< HEAD
+const getScores = async (dispatch, filter) => {
+    try {
+        dispatch(loadingScores);
+        const playerScores = await scoresRequest(filter);
+        dispatch(loadScores(playerScores));
+    } catch (err) {
+        dispatch(setError(err.message));
+    }
+}
+=======
 const getScores = async (filter) => {
   try {
     dispatch(loadingScores);
@@ -54,10 +75,36 @@ const getScores = async (filter) => {
     dispatch(setError(err.message));
   }
 };
+>>>>>>> Staging
 
 // --------------------------------helpers-----------------------------------//
 
 const questionsRequest = async (settings) => {
+<<<<<<< HEAD
+    try {
+        // const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
+        const resp = await fetch('https://opentdb.com/api.php?amount=10&category=&difficulty=&type=')
+        const data = await resp.json();
+        const questionsArr = data.results;
+        return questionsArr;
+    } catch (err) {
+        throw new Error('failed to fetch questions');
+    }
+}
+
+const scoresRequest = async (filter) => {
+    try {
+        const resp = await fetch(filter ? `insert link to deployed server/${filter}` : 'insert link');
+        const data = await resp.json();
+        //expecting an array to be returned from API
+        return data;
+    } catch (err) {
+        throw new Error('failed to fetch scores');
+    }
+}
+
+export { getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores };
+=======
   try {
     const resp = await fetch(
       `https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`
@@ -95,3 +142,4 @@ export {
   loadScores,
   loadingScores,
 };
+>>>>>>> Staging

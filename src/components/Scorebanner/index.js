@@ -1,8 +1,18 @@
 // import React from 'react';
 // import "./style.css";
 
+<<<<<<< HEAD
+const Scorebanner = () => {
+
+    let position;
+    let username;
+    let score;
+    
+    return (
+=======
 // const Scorebanner = () => {
 //     return (
+>>>>>>> Staging
 
 //         <div class='banner'>
 //             <div class='position'>

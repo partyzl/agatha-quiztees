@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
-import { SimpleSlider } from "../../components";
+// import { SimpleSlider } from "../../components";
 import { Button } from "../../components";
 import "./style.css";
 
