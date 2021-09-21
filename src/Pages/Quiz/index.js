@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Countdown, QuestionCard } from '../../components';
 import { getQuestions } from '../../actions';
+import { Countdown, QuestionCard } from '../../components';
+import { Header, Footer } from '../../Layout';
 
 
 const Quiz = () => {
