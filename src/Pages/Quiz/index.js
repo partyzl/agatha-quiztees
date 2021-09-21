@@ -1,11 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 // will need something here to import questions - like a Question component
 // will need something here to import an action like fetchQuestions from actions
-import { questionsRequest, localScores, nextQuestion } from '../../actions';
+import { questionsRequest, localScores, } from '../../actions';
 
 
 const Quiz = () => {
@@ -31,6 +31,7 @@ const Quiz = () => {
         if(quizData[1].length > 0) {
             variable = quizData[1].map( x => ({ name:x, score:0 }))
         } 
+        
         else dispatch(quizSettings(quizData[0], ['anonymous'] , quizData[2]));
         dispatch(localScores(variable));
         dispatch(fetchQuestions(categoryId, level));
@@ -69,7 +70,7 @@ const Quiz = () => {
         <div>
             <div className='quizContainer'> 
             { toggle && <h3 className='showUser'>{quizData[1][actualUser]}</h3>}
-            { toggle && <Question key={actualQuestion} question={questions[actualQuestion]} selected={nextQuestion} /> }
+            { toggle && <Question key={actualQuestion} question={questions[actualQuestion]} selected={changeQuestion} /> }
         </div>
     );
   }

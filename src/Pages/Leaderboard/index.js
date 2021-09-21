@@ -19,7 +19,7 @@ const Leaderboard = () => {
     useEffect(async () => {
         try {
             await dispatch(fetchCategories());
-            let { data } = await axios.get('https://brainiac-quiz.netlify.app/.netlify/functions/api')
+            let { data } = await axios.get('need api')
             setAllScores(data.scores)
             await setCategory('General Knowledge');
             await setDifficulty('easy')
@@ -46,7 +46,7 @@ const Leaderboard = () => {
     }, [category, difficulty])
     
     const renderRows = () => {
-        return score.map((s, i ) => <tr key={i}><td>{i+1}</td><td>{s.username}</td><td><Stars score={s.score} /></td><td>{s.score}</td></tr>)
+        return score.map((s, i ) => <tr key={i}><td>{i+1}</td><td>{s.username}</td><td>{s.score}</td><td>{s.score}</td></tr>)
       }
     
     return (
