@@ -1,26 +1,18 @@
-import React from 'react';
-import Scorebanner from '../Scorebanner';
+import React from "react";
 
-
-
-const Leaderboardlist = ({position, username, score}) => {
-    //for loop
-    return(
-        data.map((i) => (
-        <>
-        <Scorebanner
-            
-            position={position}
-            username={username}
-            score={score}
-            key={i}
-
-        />
+const Leaderboardlist = ({ category, username, score }) => {
+  //for loop
+  return (
+    <>
+      <div className="leaderboard-item">
+        <p>
+          hi + {username}
+          {category}
+          {score}
+        </p>
+      </div>
     </>
-
-  )))
-
-  }
-    
+  );
+};
 
 export default Leaderboardlist;

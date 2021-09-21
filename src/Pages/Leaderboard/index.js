@@ -1,25 +1,63 @@
-import React from 'react';
-// import Header from "../../Layout/Header";
-// import Footer from "../../Layout/Footer";
-import {Scorebanner } from '../../components';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Leaderboardlist } from "../../components";
 import "./style.css";
 
-
 const Leaderboard = () => {
-    return (
-        <div class='flex-container'>
-            <h1> LEADERBOARD </h1>
-            <Scorebanner position='1' username='Beth' score='60' />
-            <Scorebanner position='2' username='George' score='57' />
-            <Scorebanner position='3' username='matt' score='51' />
-            <Scorebanner position='4' username='Maeve' score='49' />
-            <Scorebanner position='5' username='Lily' score='40' />
-            
-            {/* <Leaderboardlist /> */}
-            
-            {/* <Footer /> */}
-        </div>
-    );
-}
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchLeaderboard = async () => {
+    try {
+      setError(null);
+      let { data } = await axios.get("http://localhost:3000/leaderboard/");
+      // console.log({ data });
+      if (!data.scores.length) {
+        setError("There are no high scores");
+      } else {
+        const array = data.scores.map((r) => {
+          //let key = r.scores.id;
+          let username = r.username;
+          let category = r.category;
+          let score = r.score;
+          // console.log(username, category, score);
+          return { username, category, score };
+        });
+        console.log(array);
+        setLeaderboard(array);
+      }
+    } catch (error) {
+      console.warn(error);
+      setError("There are no high scores available");
+    }
+  };
+
+  const renderEntries = (data) => {
+    data.map((leaderboardEntry) => (
+      <Leaderboardlist
+        username={leaderboardEntry.username}
+        //key={i}
+        category={leaderboardEntry.category}
+        score={leaderboardEntry.score}
+      />
+    ));
+  };
+
+  useEffect(() => {
+    if (leaderboard) {
+      fetchLeaderboard();
+    }
+  }, []);
+
+  return (
+    <div className="flex-container">
+      <h1> LEADERBOARD </h1>
+
+      {/* <Leaderboardlist /> */}
+      {error ? <p>{error}</p> : renderEntries(leaderboard)}
+      {/* <Footer /> */}
+    </div>
+  );
+};
 
 export default Leaderboard;
