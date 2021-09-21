@@ -1,17 +1,15 @@
 // const serverless = require('serverless-http');
 const express = require("express");
 const cors = require("cors");
+const router = require("./routes/router");
 
 const server = express();
+
 server.use(cors());
 server.use(express.json());
-
-const scoreRoutes = require("./controllers/scores");
-
-server.use("/leaderboard", scoreRoutes);
+server.use("/", router);
 
 // Root
 server.get("/", (req, res) => res.send("Greetings, traveller!!"));
 
 module.exports = server;
-// (!!base_url)? module.exports.handler = serverless(server): module.exports = server;
