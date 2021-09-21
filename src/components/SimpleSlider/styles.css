@@ -8,7 +8,7 @@
     color: rgb(150, 158 171);
   }
   li.slick-active button::before {
-    color: black;
+    color: goldenrod
   }
   .slick-list {
     overflow: hidden;

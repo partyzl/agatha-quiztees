@@ -1,33 +1,3 @@
-.deco-container {
-    grid-column: tall-start / tall-end;
-    grid-row: wide-start / wide-end;
-    padding: 5px 10px;
-    display: grid;
-    grid-template-columns: 
-      [wide-start]  5px 
-      [mid-start]   5px 
-      [tall-start]  1fr 
-      [tall-end]    5px 
-      [mid-end]     5px 
-      [wide-end] 
-    ;
-
-    grid-template-rows: 
-      [tall-start]  5px 
-      [mid-start]   5px 
-      [wide-start]  1fr 
-      [wide-end]    5px 
-      [mid-end]     5px 
-      [tall-end] 
-
-  }
-  
-  .deco-container .deco-tall {
-    grid-area: tall;
-    border: 1px solid plum;
-  }
-  
-  .deco-container .deco-mid {
-    grid-area: mid;
-    border: 1px solid lightcoral;
-  }
+body {
+  background-color: black;
+}
