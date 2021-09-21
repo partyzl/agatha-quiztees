@@ -2,8 +2,8 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
+import { SimpleSlider } from "../../components";
 import { Button } from "../../components";
-import { Carousel } from "../../components";
 
 const Landing = () => {
   let history = useHistory();
@@ -22,7 +22,7 @@ const Landing = () => {
   return (
     <>
       <Header />
-      {/* <Carousel /> */}
+      <SimpleSlider />
       <Button value="Host Quiz" onClick={hostQuiz} />
       <Button value="Join Quiz" onClick={joinQuiz} />
       <Button value="Leaderboard" onClick={leaderboard} />
