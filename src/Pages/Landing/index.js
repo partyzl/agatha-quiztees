@@ -18,11 +18,15 @@ const Landing = () => {
   const leaderboard = () => {
     history.push("/leaderboard");
   };
+  const singlePlayer = () => {
+    history.push("/quiz");
+  };
 
   return (
     <>
       <Header />
       <SimpleSlider />
+      <Button value="Single Player" onClick={singlePlayer} />
       <Button value="Host Quiz" onClick={hostQuiz} />
       <Button value="Join Quiz" onClick={joinQuiz} />
       <Button value="Leaderboard" onClick={leaderboard} />
