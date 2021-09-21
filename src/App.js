@@ -2,11 +2,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Landing } from "./Pages";
 import { Setup } from "./Pages";
-// import { WaitingRoom } from "./Pages";
-// import { Quiz } from "./Pages";
+import { WaitingRoom } from "./Pages";
+import { Quiz } from "./Pages";
 // import { Results } from "./Pages";
-// import { Leaderboard } from "./Pages";
-// import { JoinQuiz } from "./Pages";
+import { Leaderboard } from "./Pages";
+import { JoinQuiz } from "./Pages";
 
 function App() {
   return (
@@ -19,21 +19,21 @@ function App() {
           <Route path="/setup">
             <Setup />
           </Route>
-          {/* <Route path="/waitingroom">
+          <Route path="/waitingroom">
             <WaitingRoom />
           </Route>
           <Route path="/quiz">
             <Quiz />
           </Route>
-          <Route path="/results">
+          {/* <Route path="/results">
             <Results />
-          </Route>
+          </Route> */}
           <Route path="/leaderboard">
             <Leaderboard />
           </Route>
           <Route path="/joinquiz">
             <JoinQuiz />
-          </Route> */}
+          </Route>
         </Switch>
       </main>
     </div>

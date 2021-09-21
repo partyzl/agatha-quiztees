@@ -1,10 +1,12 @@
 import React from 'react';
-
+import { Header } from '../../Layout';
+import { Footer } from '../../Layout';
 const Setup = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+        <Header />
+        <Footer />
+        </>
     );
 }
 

@@ -22,7 +22,7 @@ export default class SimpleSlider extends Component {
             <h3>Quiz With Your Friends</h3>
           </div>
           <div>
-            <h3>Prove Who Is the Alpha Male and Kill The Lesser Males</h3>
+            <h3>Sell Your Soul</h3>
           </div>
         </Slider>
       </div>
