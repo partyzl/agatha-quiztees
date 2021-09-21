@@ -7,31 +7,34 @@ const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [error, setError] = useState(null);
 
-  const fetchLeaderboard = async () => {
-    try {
-      setError(null);
-      let { data } = await axios.get("http://localhost:3000/leaderboard/");
-      // console.log({ data });
-      if (!data.scores.length) {
-        setError("There are no high scores");
-      } else {
-        const array = data.scores.map((r) => {
-          //let key = r.scores.id;
-          let username = r.username;
-          let category = r.category;
-          let score = r.score;
-          // console.log(username, category, score);
-          return { username, category, score };
-        });
-        console.log(array);
-        setLeaderboard(array);
-        //console.log(leaderboard);
+  useEffect(() => {
+    const fetchLeaderboard = async () => {
+      try {
+        setError(null);
+        let { data } = await axios.get("http://localhost:3000/leaderboard/");
+        // console.log({ data });
+        if (!data.scores.length) {
+          setError("There are no high scores");
+        } else {
+          const array = data.scores.map((r) => {
+            //let key = r.scores.id;
+            let username = r.username;
+            let category = r.category;
+            let score = r.score;
+            // console.log(username, category, score);
+            return { username, category, score };
+          });
+          console.log(array);
+          setLeaderboard(array);
+          //console.log(leaderboard);
+        }
+      } catch (error) {
+        console.warn(error);
+        setError("There are no high scores available");
       }
-    } catch (error) {
-      console.warn(error);
-      setError("There are no high scores available");
-    }
-  };
+    };
+    fetchLeaderboard();
+  }, []);
 
   const renderEntries = (data) => {
     data.map((leaderboardEntry) => (
@@ -43,12 +46,6 @@ const Leaderboard = () => {
       />
     ));
   };
-
-  useEffect(() => {
-    if (leaderboard) {
-      fetchLeaderboard();
-    }
-  }, []);
 
   return (
     <div className="flex-container">
