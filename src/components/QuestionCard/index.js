@@ -18,7 +18,8 @@ const QuestionCard = ({ round }) => {
         if (selection) { dispatch(answerQuestion('')) }
         const renderOptions = () => {
             return options.map(choice => (
-                <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`} disabled={answered} onClick={clickHandler} dangerouslySetInnerHTML={{__html: choice }} />)
+                <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`}
+                    disabled={answered} onClick={clickHandler} dangerouslySetInnerHTML={{ __html: choice }} />)
             )
         }
         setOptionElements(renderOptions)
