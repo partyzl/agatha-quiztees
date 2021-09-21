@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getQuestions, endGame } from '../../actions'
@@ -34,5 +35,18 @@ const Results = () => {
         </div>
     )
 }
+=======
+import { Button } from "bootstrap";
+import React from "react";
 
-export default Results
+const Results = () => {
+  return (
+    <>
+      <Button />
+      <Button />
+    </>
+  );
+};
+>>>>>>> Staging
+
+export default Results;

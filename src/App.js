@@ -8,6 +8,7 @@ import { Results } from "./Pages";
 import { Leaderboard } from "./Pages";
 import { JoinQuiz } from "./Pages";
 
+
 function App() {
   return (
     <div id="app">

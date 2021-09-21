@@ -1,57 +1,65 @@
-@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+@import url("https://fonts.googleapis.com/css?family=Poiret+One");
 
-.app-button { 
-	display: flex;  
-	flex-direction: column;
-	text-transform: uppercase;
-	letter-spacing: 0.4em;
-	font-size: 30px;
-	padding: 1em;
-	width: 30%;
-	min-width: 340px;
-	text-align: center;
-	text-decoration: none;
-    font-family: 'Poiret One' !important;
-	color: goldenrod;
-	background: transparent;
-	position: relative;
-	transition: 0.5s;
-  }
-  
-  .app-button:before, .app-button:after {
-	border: 4px solid;
-  }
-  
-  .app-button:before, .app-button:after {
-	content: "";
-	position: absolute; 
+.app-button {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-size: 30px;
+  padding: 1em;
+  width: 30%;
+  min-width: 340px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Poiret One" !important;
+  color: goldenrod;
+  background: transparent;
+  position: relative;
+  transition: 0.5s;
+  align-items: center;
 }
-  
-  .app-button:before {
-	top: -15px;
-	right: -2px;
-	bottom: -15px;
-	left: -2px;
-  }
-  
-  .app-button:after {
-	top: -2px;
-	right: -15px;
-	bottom: -2px;
-	left: -15px;
-  }
+
+.app-button:before,
+.app-button:after {
+  border: 4px solid;
+}
+
+.app-button:before,
+.app-button:after {
+  content: "";
+  position: absolute;
+}
+
+.app-button:before {
+  top: -15px;
+  right: -2px;
+  bottom: -15px;
+  left: -2px;
+}
+
+.app-button:after {
+  top: -2px;
+  right: -15px;
+  bottom: -2px;
+  left: -15px;
+}
 
 .app-button:hover {
-    color: white;
-    background-color: goldenrod;
+  color: white;
+  background-color: goldenrod;
 }
 
 .app-button:active {
-    color: white;
-    background-color: goldenrod;
+  color: white;
+  background-color: goldenrod;
 }
 
 .app-button:focus {
-    color: white;
-    background-color: goldenrod;
+  color: white;
+  background-color: goldenrod;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
 }
