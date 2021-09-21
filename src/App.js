@@ -1,27 +1,25 @@
-import React from 'react';
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Landing } from "./Pages";
-// import { Setup } from "./Pages";
+import { Setup } from "./Pages";
 // import { WaitingRoom } from "./Pages";
 // import { Quiz } from "./Pages";
 // import { Results } from "./Pages";
 // import { Leaderboard } from "./Pages";
 // import { JoinQuiz } from "./Pages";
 
-
 function App() {
   return (
     <div id="app">
-   
       <main>
         <Switch>
           <Route exact path="/">
             <Landing />
           </Route>
-          {/* <Route path="/setup">
+          <Route path="/setup">
             <Setup />
           </Route>
-          <Route path="/waitingroom">
+          {/* <Route path="/waitingroom">
             <WaitingRoom />
           </Route>
           <Route path="/quiz">
@@ -35,13 +33,10 @@ function App() {
           </Route>
           <Route path="/joinquiz">
             <JoinQuiz />
-          </Route> */
-          com} 
-          {/* commented them out as they will error until the pages are working! */}
+          </Route> */}
         </Switch>
       </main>
     </div>
-   
   );
 }
 

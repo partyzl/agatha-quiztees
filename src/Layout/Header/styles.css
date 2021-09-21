@@ -1,4 +1,4 @@
-#header {
+.header {
   position: relative;
   width: 100vw;
   height: 35vh;
@@ -9,15 +9,14 @@
 
 h1 h4 {
   text-align: center;
-  /* text-decoration: underline; */
   padding-bottom: 3em;
   padding-top: 0.5em;
   color: ivory;
 }
 
 img {
-  display: block;
-  height: 20vh;
-  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  height: 15vh;
   padding-top: 1em;
 }
