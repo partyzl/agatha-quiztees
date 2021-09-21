@@ -3,7 +3,7 @@ div{
     font-size: 20px;
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 40px;
 }
 
 .banner{
@@ -12,6 +12,7 @@ div{
     flex-flow: row nowrap;
     justify-content: space-between;
     border-radius: 10px;
+    margin: 20px;
 }
 
 p{

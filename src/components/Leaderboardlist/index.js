@@ -1,21 +1,24 @@
 import React from 'react';
+import Scorebanner from '../Scorebanner';
 
 
-const Leaderboardlist = (data) => {
-  data.map((position,username, score, i) => (
-    <>
-      <Scorebanner>
-        
-        position={position}
-        username={username}
-        score={score}
-        key={i}
 
-        {/* change key to position? */}
+const Leaderboardlist = ({position, username, score}) => {
+    //for loop
+    return(
+        data.map((i) => (
+        <>
+        <Scorebanner
+            
+            position={position}
+            username={username}
+            score={score}
+            key={i}
 
-      </Scorebanner>
+        />
     </>
-  ))
+
+  )))
 
   }
     

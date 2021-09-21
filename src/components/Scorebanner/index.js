@@ -1,7 +1,9 @@
 import React from 'react';
 import "./style.css";
 
-const Scorebanner = () => {
+// const data = [{position: 1, username: 'Ben', score: 50}, {position: 2, username: 'Lily', score: 43}];
+
+const Scorebanner = ({position, username, score}) => {
     return (
 
         <div class='banner'>

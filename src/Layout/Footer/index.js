@@ -17,7 +17,7 @@ const Footer = () => {
               <i className="bx bx-chevron-right"></i> <a href="/">Home</a>
             </li>
             <li>
-              <i className="bx bx-chevron-right"></i> <a href="#">About us</a>
+              <i className="bx bx-chevron-right"></i> <a href="/">About us</a>
             </li>
           </ul>
         </div>

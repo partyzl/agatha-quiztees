@@ -5,7 +5,7 @@ import { Landing } from "./Pages";
 // import { WaitingRoom } from "./Pages";
 // import { Quiz } from "./Pages";
 // import { Results } from "./Pages";
-// import { Leaderboard } from "./Pages";
+import { Leaderboard } from "./Pages";
 // import { JoinQuiz } from "./Pages";
 
 
@@ -17,6 +17,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Landing />
+          </Route>
+          <Route path="/leaderboard">
+            <Leaderboard />
           </Route>
           {/* <Route path="/setup">
             <Setup />
@@ -30,9 +33,7 @@ function App() {
           <Route path="/results">
             <Results />
           </Route>
-          <Route path="/leaderboard">
-            <Leaderboard />
-          </Route>
+          
           <Route path="/joinquiz">
             <JoinQuiz />
           </Route> */
