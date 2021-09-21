@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Poiret+One');
 
-body {
-	background-color: #080800;
-	font-family: 'Poiret One';
-}
-
 .app-button {
 	text-transform: uppercase;
 	letter-spacing: 0.4em;
@@ -15,9 +10,12 @@ body {
 	box-shadow: inset 0 0 0 1px;
 	min-width: 340px;
 	text-align: center;
+    font-family: 'Poiret One' !important;
+	color: goldenrod;
+	background-color: black;
 }
 
-.app-button:hover {
+.app-button:hover:focus:active {
     color: white;
     background-color: goldenrod;
     transition: 0.5s;
