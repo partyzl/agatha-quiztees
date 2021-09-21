@@ -34,6 +34,7 @@ const Leaderboard = () => {
       }
     };
     fetchLeaderboard();
+    console.log(leaderboard);
   }, []);
 
   const renderEntries = (data) => {
