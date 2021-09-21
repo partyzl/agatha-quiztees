@@ -9,7 +9,7 @@ describe('Timebar', ()=> {
           }, 1005);
     })
 
-    test('it doesn\'t calls handleClick if the time hasn\'t finished', () => {
+    test("it doesn't calls handleClick if the time hasn't finished", () => {
         const stubHandleClick = jest.fn();
         renderWithReduxProvider(<Timebar duration={1000} endAction={stubHandleClick} />)
         expect(stubHandleClick).toHaveBeenCalledTimes(0);
