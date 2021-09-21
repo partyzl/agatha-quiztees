@@ -4,6 +4,7 @@ import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
 import { SimpleSlider } from "../../components";
 import { Button } from "../../components";
+import './style.css';
 
 const Landing = () => {
   let history = useHistory();
