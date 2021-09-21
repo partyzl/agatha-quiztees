@@ -26,11 +26,13 @@ const Landing = () => {
   return (
     <>
       <Header />
-      <SimpleSlider />
-      <Button value="Single Player" onClick={singlePlayer} />
-      <Button value="Host Quiz" onClick={hostQuiz} />
-      <Button value="Join Quiz" onClick={joinQuiz} />
-      <Button value="Leaderboard" onClick={leaderboard} />
+      <div className="container">
+        <SimpleSlider />
+          <Button value="Single Player" onClick={singlePlayer} />
+          <Button value="Host Quiz" onClick={hostQuiz} />
+          <Button value="Join Quiz" onClick={joinQuiz} />
+          <Button value="Leaderboard" onClick={leaderboard} />
+      </div>
       <Footer />
     </>
   );

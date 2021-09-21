@@ -25,8 +25,8 @@
   .app-button:before, .app-button:after {
 	content: "";
 	position: absolute; 
-	text-align: center !important; 
-  }
+	text-align: center !important;
+}
   
   .app-button:before {
 	top: -15px;
