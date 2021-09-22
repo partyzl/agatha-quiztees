@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
 import axios from "axios";
-import { Leaderboardlist } from "../../components";
+import { LeaderboardList } from "../../components";
 import "./style.css";
 
 const Leaderboard = () => {
@@ -16,7 +16,7 @@ const Leaderboard = () => {
 
   const scoreLine = leaderboard.map((item, i) => (
     <div className="scores-container" key={i}>
-      <Leaderboardlist scores={item} />
+      <LeaderboardList scores={item} />
     </div>
   ));
   return (
@@ -25,7 +25,7 @@ const Leaderboard = () => {
       <div className="flex-container">
         <h1> LEADERBOARD </h1>
 
-        {/* <Leaderboardlist /> */}
+        {/* <LeaderboardList /> */}
         {error ? <p>{error}</p> : scoreLine}
         {/* <Footer /> */}
       </div>

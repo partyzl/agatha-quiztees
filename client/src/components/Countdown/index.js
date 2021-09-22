@@ -15,7 +15,7 @@ const Countdown = ({ duration, interval, delay, reset }) => {
         if (number > 0) {
             setTimeout(() => setNumber(existing => existing - 1), interval)
         } else {
-            if (!answered) { dispatch(answerQuestion('', [], [])) }
+            if (!answered) { dispatch(answerQuestion('incorrect', [], [])) }
             setTimeout(() => dispatch(nextQuestion()), delay)
         }
     }, [number])
