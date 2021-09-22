@@ -6,9 +6,10 @@
   text-transform: uppercase;
   letter-spacing: 0.4em;
   font-size: 30px;
-  padding: 1em;
   width: 30%;
+  height: 10%;
   min-width: 340px;
+  min-height: 50px;
   text-align: center;
   text-decoration: none;
   font-family: "Poiret One" !important;

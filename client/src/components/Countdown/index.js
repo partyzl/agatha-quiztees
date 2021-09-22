@@ -1,34 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { answerQuestion, nextQuestion } from '../../actions'
+import { answerQuestion, nextQuestion } from "../../actions";
+import "./styles.css";
 
 const Countdown = ({ duration, interval, delay, reset }) => {
 
-    const [number, setNumber] = useState(duration)
+  const [number, setNumber] = useState(duration);
 
-    const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-    const answered = useSelector(state => state.gameplay.answered)
+  const answered = useSelector((state) => state.gameplay.answered);
 
-    useEffect(() => {
-        if (number > 0) {
-            setTimeout(() => setNumber(existing => existing - 1), interval)
-        } else {
-            if (!answered) { dispatch(answerQuestion('', [], [])) }
-            setTimeout(() => dispatch(nextQuestion()), delay)
-        }
-    }, [number])
+  useEffect(() => {
+    if (number > 0) {
+      setTimeout(() => setNumber((existing) => existing - 1), interval);
+    } else {
+      if (!answered) {
+        dispatch(answerQuestion("", [], []));
+      }
+      setTimeout(() => dispatch(nextQuestion()), delay);
+    }
+  }, [number]);
 
-    useEffect(() => {
-        setNumber(duration)
-    }, [reset])
+  useEffect(() => {
+    setNumber(duration);
+  }, [reset]);
 
-    return (
-        <div>
-            <span>{number}</span>
-        </div>
-    )
-}
+  return (
+    <div>
+      <span>{number}</span>
+    </div>
+  );
+};
 
-export default Countdown
+export default Countdown;
+
+
+

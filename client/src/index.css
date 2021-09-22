@@ -5,14 +5,15 @@
 }
 
 main {
-  overflow: scroll;
-  background: url(https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v945-tang-frame-03-b_1.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=ccb08550a9ad540698a77b3b8931ab84);
+  background: url("./wave-haikei\ \(1\).svg");
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  overflow: auto;
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
   /* margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",

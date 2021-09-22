@@ -26,20 +26,24 @@ const Landing = () => {
   return (
     <>
       <Header />
-      <div className="container align-items-center justify-content-center">
+      <div>
         <SimpleSlider />
-        <div>
-          <div className="buttonContainer">
-            <Button value="Single Player" onClick={singlePlayer} />
+        <div className="allButtonContainer">
+          <div className="buttonCollapse">
+            <div className="buttonContainer">
+              <Button value="Solo Quiz" onClick={singlePlayer} />
+            </div>
+            <div className="buttonContainer">
+              <Button value="Host Quiz" onClick={hostQuiz} />
+            </div>
           </div>
-          <div className="buttonContainer">
-            <Button value="Host Quiz" onClick={hostQuiz} />
-          </div>
-          <div className="buttonContainer">
-            <Button value="Join Quiz" onClick={joinQuiz} />
-          </div>
-          <div className="buttonContainer">
-            <Button value="Leaderboard" onClick={leaderboard} />
+          <div className="buttonCollapse">
+            <div className="buttonContainer">
+              <Button value="Join Quiz" onClick={joinQuiz} />
+            </div>
+            <div className="buttonContainer">
+              <Button value="Leaderboard" onClick={leaderboard} />
+            </div>
           </div>
         </div>
       </div>

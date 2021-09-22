@@ -1,13 +1,18 @@
 import React from "react";
 
 const Leaderboardlist = ({ scores }) => {
-  //for loop
+  //for loop for position
+
   return (
     <>
       <div className="leaderboard-item">
-        <p>{scores.username}</p>
-        <p>{scores.category}</p>
-        <p>{scores.score}</p>
+        <table>
+          <tr>
+            <td>{scores.username}</td>
+            <td>{scores.category}</td>
+            <td>{scores.score}</td>
+          </tr>
+        </table>
       </div>
     </>
   );
