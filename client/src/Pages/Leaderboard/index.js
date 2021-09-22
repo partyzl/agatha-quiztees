@@ -1,19 +1,34 @@
-import React from "react";
-import { useHistory } from "react-router";
+import React, { useState, useEffect } from "react";
 import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
-import { Button } from "../../components";
-
+import axios from "axios";
+import { LeaderboardList } from "../../components";
+import "./style.css";
 
 const Leaderboard = () => {
-  let history = useHistory();
-  const landing = () => {
-    history.push("/");
-  };
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(async () => {
+    const { data } = await axios.get("http://localhost:3000/leaderboard/");
+    setLeaderboard(data.scores);
+  }, []);
+
+  const scoreLine = leaderboard.map((item, i) => (
+    <div className="scores-container" key={i}>
+      <LeaderboardList scores={item} />
+    </div>
+  ));
   return (
     <>
       <Header />
-      <Button value="Landing" onClick={landing} />
+      <div className="flex-container">
+        <h1> LEADERBOARD </h1>
+
+        {/* <Leaderboardlist /> */}
+        {error ? <p>{error}</p> : scoreLine}
+        {/* <Footer /> */}
+      </div>
       <Footer />
     </>
   );

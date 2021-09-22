@@ -10,16 +10,6 @@ async function index(req, res) {
   }
 }
 
-// Usernane show route
-// router.get("/:username", async (req, res) => {
-//   try {
-//     const scoresByUserName = await Score.findByUsername(req.params.username);
-//     res.status(200).json({ scoresByUserName });
-//   } catch (err) {
-//     res.status(404).json({ err });
-//   }
-// });
-
 // Create score route
 async function create(req, res) {
   try {
