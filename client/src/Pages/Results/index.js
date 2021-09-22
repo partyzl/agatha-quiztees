@@ -20,13 +20,27 @@ const Results = () => {
                 category: 'category goes here',
                 score: calculateScores()
             })
-        } else{
+        } else {
             setResultsBoard(<LeaderboardList scores={result} />)
         }
     }, [result])
 
     function calculateScores() {
-        console.log('is running')
+        let difficultyMultiplier;
+        switch (quizData.settings.difficulty) {
+            case 'easy':
+                difficultyMultiplier = 1;
+                break;
+            case 'medium':
+                difficultyMultiplier = 1.5;
+                break;
+            case 'hard':
+                difficultyMultiplier = 2;
+                break;
+            default:
+                difficultyMultiplier = 1;
+                break;
+        }
         let correctAnswers = 0;
         let streak = 0
         for (let i = 0; i < gameData.answers.length; i++) {
@@ -38,9 +52,8 @@ const Results = () => {
                 streak = 0;
             }
         }
-        console.log(correctAnswers)
         const score = streak < quizData.questions.length * 0.5 ? correctAnswers + 0 : correctAnswers;
-        return score;
+        return score * difficultyMultiplier;
     }
 
 
