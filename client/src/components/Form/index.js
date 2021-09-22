@@ -11,8 +11,8 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(username, category);
-    // history.push("/quiz");
+
+    history.push("/quiz");
   };
 
   return (
