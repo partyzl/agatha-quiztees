@@ -1,10 +1,10 @@
 const GameData = require("../server/models/GameData");
 const playerData = require("../server/models/playerData");
-const gameStart, hasPlayerAnswered = require("./handlers")
+//const gameStart, hasPlayerAnswered = require("./handlers")
 
-import express from "express";
-import { createServer } from "http";
-import { Server } from "socket.io";
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
 
 const app = express();
 const httpServer = createServer(app);
@@ -16,8 +16,8 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  socket.on("game:start", gameStart);
-  socket.on("player:answer", hasPlayerAnswered);
+  //socket.on("connected", console.log(socket.connected));
+  //socket.on("player:answer", hasPlayerAnswered);
 });
 
-httpServer.listen(3002);
+httpServer.listen(3002, console.log("socket online"));
