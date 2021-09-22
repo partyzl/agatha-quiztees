@@ -1,5 +1,7 @@
 import React from 'react';
 import Particles from 'react-particles-js';
+import { SimpleSlider } from "../../components";
+
 import { Header } from '../../Layout';
 import { Footer } from '../../Layout';
 
@@ -33,7 +35,7 @@ const WaitingRoom = () => {
                   }} />
                   </div>
         <Header />
-        <Particles />
+        <SimpleSlider />
         <Footer />
         </>
     );
