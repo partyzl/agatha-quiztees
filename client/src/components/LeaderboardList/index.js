@@ -1,7 +1,8 @@
 import React from "react";
 
-const Leaderboardlist = ({ scores }) => {
+const LeaderboardList = ({ scores }) => {
   //for loop
+
   return (
     <>
       <div className="leaderboard-item">
@@ -13,4 +14,4 @@ const Leaderboardlist = ({ scores }) => {
   );
 };
 
-export default Leaderboardlist;
+export default LeaderboardList;
