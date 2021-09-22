@@ -16,7 +16,11 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  //socket.on("connected", console.log(socket.connected));
+  console.log("New client connected")
+  socket.on('disconnect', () => console.log('disconnected'))
+  socket.on("startGame", (arg) => {
+    console.log(arg);
+  });
   //socket.on("player:answer", hasPlayerAnswered);
 });
 

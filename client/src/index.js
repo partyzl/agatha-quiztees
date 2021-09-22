@@ -7,9 +7,9 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./store";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import init from "./socket";
+// import init from "./socket";
 
-init();
+// init();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+// import { Socket } from "socket.io-client";
+// import { initSocket } from '../../socket'
+// import {startGame} from '../../socket/events'
 
 const Form = () => {
   let history = useHistory();
@@ -11,7 +14,10 @@ const Form = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(username, category);
+    // initSocket();
+    // startGame("stuff");
+    //send event to prep game.
+    //console.log(username, category);
     // history.push("/quiz");
   };
 
