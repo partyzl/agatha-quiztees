@@ -6,6 +6,14 @@ import { Leaderboardlist } from "../../components";
 import "./style.css";
 
 const Leaderboard = () => {
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(async () => {
+    const { data } = await axios.get("http://localhost:3000/leaderboard/");
+    setLeaderboard(data.scores);
+  }, []);
+
   const scoreLine = leaderboard.map((item, i) => (
     <div className="scores-container" key={i}>
       <Leaderboardlist scores={item} />
@@ -27,13 +35,3 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
-
-const Leaderboard = () => {
-  const [leaderboard, setLeaderboard] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(async () => {
-    const { data } = await axios.get("http://localhost:3000/leaderboard/");
-    setLeaderboard(data.scores);
-  }, []);
-};
