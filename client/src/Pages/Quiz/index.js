@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getQuestions } from '../../actions';
 import { Countdown, QuestionCard } from '../../components';
 import { Header, Footer } from '../../Layout';
 
 
 const Quiz = () => {
-    //temporary
-    const dispatch = useDispatch()
-
     const currentIndex = useSelector(state => state.gameplay.currentIndex)
     const questions = useSelector(state => state.quizInfo.questions)
 
     const [currentQuestion, setCurrentQuestion] = useState(questions[currentIndex])
     const [reset, setReset] = useState(false)
 
-    // getQuestions(dispatch)
+    let options = randomiser([currentQuestion.correct_answer, ...currentQuestion.incorrect_answers]);
 
     useEffect(() => {
         if (currentIndex == questions.length) {
@@ -27,10 +24,20 @@ const Quiz = () => {
         return () => setReset(existing => existing ? false : true)
     }, [currentIndex])
 
+    useEffect(() => {
+        options = randomiser([currentQuestion.correct_answer, ...currentQuestion.incorrect_answers])
+    }, [currentQuestion])
+
+    function randomiser(options) {
+        console.log('mixing')
+        const randomised = options.sort(() => Math.random() - 0.5)
+        return randomised
+    }
+
     return (
         <div>
-            <Countdown duration={5} interval={1000} delay={3000} reset={reset} />
-            <QuestionCard round={currentQuestion} />
+            <Countdown duration={10} interval={1000} delay={3000} reset={reset} />
+            <QuestionCard round={currentQuestion} options={options} />
             <span>{currentIndex}</span>
         </div >
     );
