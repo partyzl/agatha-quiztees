@@ -16,7 +16,7 @@ const getInitState = (host, error) => (
    }
 )
 
-describe('WaitingRoomPage', () => {
+describe('WaitingRoom', () => {
 
     beforeAll(() => {
         render(<WaitingRoom />, { wrapper: MemoryRouter })
