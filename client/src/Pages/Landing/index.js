@@ -24,7 +24,7 @@ const Landing = () => {
     history.push("/leaderboard");
   };
   const singlePlayer = () => {
-    history.push("/settings");
+    history.push("/setup");
   };
 
   return (

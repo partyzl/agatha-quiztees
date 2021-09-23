@@ -27,9 +27,6 @@ const Quiz = () => {
         return () => setReset(existing => existing ? false : true)
     }, [currentIndex])
 
-
-    //if the index is the equal to the questions.length - 1 
-
     return (
         <div>
             <Countdown duration={5} interval={1000} delay={3000} reset={reset} />

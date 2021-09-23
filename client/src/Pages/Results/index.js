@@ -5,20 +5,29 @@ import { Button } from '../../components'
 
 const Results = () => {
     const dispatch = useDispatch()
-    const gameData = useSelector(state => state.gameplay.answer)
-    const settings = useSelector(state => state.quizInfo.settings)
+    const gameData = useSelector(state => state.gameplay)
+    const quizData = useSelector(state => state.quizInfo)
 
 
     useEffect(() => {
         calculateScores(gameData)
     }, [])
 
-    function calculateScores(data){
+    function calculateScores(data) {
+
+        // for(let i=0; i<data.answers.length; i++){
+        //     if (data.answers[i] == quizData.questions[i].correct_answer){
+        //         correct_count
+        //     }
+        // }
+
+
+
         return null
     }
 
     async function playAgain() {
-        await getQuestions(dispatch, settings)
+        await getQuestions(dispatch, quizData.settings)
         document.location = '/quiz'
     }
 
