@@ -23,7 +23,7 @@ describe('WaitingRoom', () => {
         render(<WaitingRoom />, { wrapper: MemoryRouter })
     })
 
-    it('renders the heading and start button', () => {
+    test('renders the heading and start button', () => {
         const initState = getInitState(true, null)
         const heading = screen.getByText('Waiting Room');
         const button = screen.getByRole('button');
@@ -31,7 +31,7 @@ describe('WaitingRoom', () => {
         expect(button).toBeInTheDocument();
     });
 
-    it('renders error message if error is not null', () => {
+    test('renders error message if error is not null', () => {
         const initState = getInitState(true, 'test error message');
         const alert = screen.getByRole('alert');
         expect(alert.textContent).toBe('test error message');
