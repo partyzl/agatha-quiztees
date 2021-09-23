@@ -4,7 +4,7 @@ import { answerQuestion } from '../../actions'
 import './style.css'
 
 
-const QuestionCard = ({ round }) => {
+const QuestionCard = ({ round, options }) => {
 
     const answered = useSelector(state => state.gameplay.answered)
 
@@ -12,7 +12,6 @@ const QuestionCard = ({ round }) => {
     const [optionElements, setOptionElements] = useState()
 
     const dispatch = useDispatch()
-    const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
         if (selection) { dispatch(answerQuestion(logAnswer())) }
@@ -30,11 +29,6 @@ const QuestionCard = ({ round }) => {
         const answeredClassName = option == round.correct_answer ? 'correct' : 'incorrect';
         const classStyling = answered ? answeredClassName : 'unanswered';
         return classStyling
-    }
-
-    function randomiser(options) {
-        const randomised = options.sort(() => Math.random() - 0.5)
-        return randomised
     }
 
     function isSelected(option) {
