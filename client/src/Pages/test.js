@@ -1,4 +1,5 @@
 import { MemoryRouter } from 'react';
+import { render } from 'react-dom'
 import { screen } from '@testing-library/react';
 import WaitingRoom from '.';
 
