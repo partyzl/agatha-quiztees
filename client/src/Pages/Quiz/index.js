@@ -6,9 +6,6 @@ import { Header, Footer } from '../../Layout';
 
 
 const Quiz = () => {
-    //temporary
-    const dispatch = useDispatch()
-
     const currentIndex = useSelector(state => state.gameplay.currentIndex)
     const questions = useSelector(state => state.quizInfo.questions)
 

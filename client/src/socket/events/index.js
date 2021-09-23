@@ -1,7 +1,14 @@
 
+const { loadQuestions } = require("../../actions")
+const { store } = require("../../store")
 
-const quizStarted = (questionInfo) => {
-    console.log(questionInfo, 'quiz started')
+
+
+const QuizStarted = (questionInfo) => {
+    // const dispatch = useDispatch()
+    store.dispatch(loadQuestions(questionInfo))
+    // dispatch(loadQuestions(questionInfo))
+    document.location = '/quiz'
 }
 
-module.exports = { quizStarted }
+module.exports = { QuizStarted }
