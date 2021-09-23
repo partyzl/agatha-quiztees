@@ -26,6 +26,11 @@ describe('Name for test suite', ()=> {
         // expect().toBeInstanceOf();
     })
 
+    test('Tells the user their question or asks them to wait for their turn', () => {
+        expect(screen.getByRole('span')).toBeInTheDocument();
+        // then check value of heading
+    })
+
     test('Moves to next question on submit', () =>{
         // expect().toBeInTheDocument();
         // expect().toHaveBeenCalledTimes(1);

@@ -1,21 +1,25 @@
 import { screen } from '@testing-library/react';
 import Landing from '.';
 import { Button } from '../../components';
+import { MemoryRouter } from 'react';
 
 describe('Landing', () => {
+
+    beforeAll(() => {
+        render(<Landing />, { wrapper: MemoryRouter })
+        renderWithReduxProvider(<Button />);
+    })
+
     test('it shows page header', () => {
-        render(<Landing/>)
         expect(screen.getByRole('heading').textContent).toContain('');
     })
 
     test("renders page buttons", () => {
-        renderWithReduxProvider(<Button />);
         const buttons = screen.queryByRole('button')
         expect(buttons).toBeInTheDocument();
     });
 
     test('buttons redirect to correct pages', () => {
-        renderWithReduxProvider(<Button />);
         expect().toHaveBeenCalledTimes(1);
         expect()
     })

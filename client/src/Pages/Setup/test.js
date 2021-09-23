@@ -9,6 +9,15 @@ describe('Name for test suite', ()=> {
         renderWithReduxProvider(<Setup />) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
 
+    test('Includes a form to setup a quiz/create a room multiplayer', () => {
+        expect(screen.getByRole('form')).toBeInTheDocument();
+    })
+
+    test('Includes a single form and input for entering your username', () => {
+        expect(screen.getByRole('form')).toBeInTheDocument();
+        // then check for input of type text with empty value
+    })
+
     test('Renders Header', () =>{
         // expect().toBeInTheDocument();
         // expect().toHaveBeenCalledTimes(1);
