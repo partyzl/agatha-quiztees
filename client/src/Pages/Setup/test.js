@@ -1,7 +1,8 @@
-import { render } from 'react-dom';
-import {screen, waitFor} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import axios from 'axios';
+import { render } from 'react-dom'
+import {screen, waitFor} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import axios from 'axios'
+import App from '../../App'
 
 describe('Name for test suite', ()=> {
     beforeEach(() => {
