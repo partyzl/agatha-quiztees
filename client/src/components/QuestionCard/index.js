@@ -15,7 +15,7 @@ const QuestionCard = ({ round }) => {
     const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
-        if (selection) { dispatch(answerQuestion('')) }
+        if (selection) { dispatch(answerQuestion(logAnswer())) }
         const renderOptions = () => {
             return options.map(choice => (
                 <button className={`option ${showAnswer(choice)} ${isSelected(choice)}`}
@@ -40,6 +40,11 @@ const QuestionCard = ({ round }) => {
     function isSelected(option) {
         const classStyling = option == selection ? 'selected' : '';
         return classStyling
+    }
+
+    function logAnswer(){
+        const log = selection == round.correct_answer ? 'correct' : 'incorrect';
+        return log;
     }
 
     function clickHandler(e) {

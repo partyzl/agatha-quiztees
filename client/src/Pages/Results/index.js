@@ -1,24 +1,67 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getQuestions, endGame } from '../../actions'
-import { Button } from '../../components'
+import { LeaderboardList, Button } from '../../components'
 
 const Results = () => {
     const dispatch = useDispatch()
-    const gameData = useSelector(state => state.gameplay.answer)
-    const settings = useSelector(state => state.quizInfo.settings)
+    const gameData = useSelector(state => state.gameplay)
+    const quizData = useSelector(state => state.quizInfo)
+
+    //const [playerScore, setPlayerScore] = useState()
+    const [result, setResult] = useState()
+    const [resultsBoard, setResultsBoard] = useState()
 
 
     useEffect(() => {
-        calculateScores(gameData)
-    }, [])
+        if (!result) {
+            setResult({
+                username: 'bob',
+                category: 'category goes here',
+                score: calculateScores()
+            })
+        } else {
+            setResultsBoard(<LeaderboardList scores={result} />)
+        }
+    }, [result])
 
-    function calculateScores(data){
-        return null
+    function calculateScores() {
+        let difficultyMultiplier;
+        switch (quizData.settings.difficulty) {
+            case 'easy':
+                difficultyMultiplier = 1;
+                break;
+            case 'medium':
+                difficultyMultiplier = 1.5;
+                break;
+            case 'hard':
+                difficultyMultiplier = 2;
+                break;
+            default:
+                difficultyMultiplier = 1;
+                break;
+        }
+        let correctAnswers = 0;
+        let streak = 0
+        for (let i = 0; i < gameData.answers.length; i++) {
+            if (gameData.answers[i] == 'correct') {
+                correctAnswers++;
+                streak++;
+            }
+            else {
+                streak = 0;
+            }
+        }
+        const score = streak < quizData.questions.length * 0.5 ? correctAnswers + 0 : correctAnswers;
+        return score * difficultyMultiplier;
     }
 
+
+
+
+
     async function playAgain() {
-        await getQuestions(dispatch, settings)
+        await getQuestions(dispatch, quizData.settings)
         document.location = '/quiz'
     }
 
@@ -31,6 +74,8 @@ const Results = () => {
         <div>
             <Button onClick={playAgain} value='play again' />
             <Button onClick={goHome} value='return home' />
+            <p>Results</p>
+            {resultsBoard}
         </div>
     )
 }
