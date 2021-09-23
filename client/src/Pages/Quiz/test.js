@@ -58,12 +58,4 @@ describe('Name for test suite', ()=> {
         // expect().toBeInstanceOf();
     })
 
-    test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
 })

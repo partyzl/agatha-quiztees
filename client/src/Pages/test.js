@@ -10,7 +10,7 @@ const getInitState = (host, error) => (
            { username: 'testie 1', host: host, totalScore: 6 }
        ],
        currentPlayer: 'testie 1',
-       roomNumber: 0451,
+       roomNumber: 432432432,
        gameSettings: {categoryName: 'test category', difficulty: 'test difficulty'},
        error: error
    }
