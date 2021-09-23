@@ -24,7 +24,7 @@
 .choices > button {
   border-radius: 15%;
   color: white;
-  background-color: #f88526
+  background-color: #f88526;
 }
 
 .choices {
@@ -34,4 +34,14 @@
 .question {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 940px) {
+  .choices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }

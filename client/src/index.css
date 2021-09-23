@@ -3,7 +3,9 @@
 * {
   font-family: "Poiret One";
 }
-
+h1 {
+  font-size: 75px;
+}
 main {
   background: url("./wave-haikei\ \(1\).svg");
   height: 100vh;

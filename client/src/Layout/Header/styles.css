@@ -11,6 +11,6 @@ h1 {
   display: flex;
   align-items: center;
   text-align: center;
-  padding-bottom: 3em;
-  padding-top: 3em;
+  padding-bottom: 0.5em;
+  padding-top: 1.5em;
 }

@@ -18,13 +18,15 @@ export default class SimpleSlider extends Component {
         <h2> </h2>
         <Slider {...settings}>
           <div>
-            <h3>About</h3>
+            <h3>Quiz with your friends!</h3>
           </div>
           <div>
-            <h3>Quiz With Your Friends</h3>
+            <h3>Quiz with your Enemies</h3>
+            <p></p>
           </div>
           <div>
-            <h3>Sell Your Soul</h3>
+            <h3>Keep track of who is better, with our Leaderboard</h3>
+            <p></p>
           </div>
         </Slider>
       </div>
