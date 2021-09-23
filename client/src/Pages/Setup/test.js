@@ -41,12 +41,11 @@ describe('Quiz Setup', ()=> {
         expect(Btn).toBeInTheDocument();
     })
 
-    test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-});
+    test('fetches categories from axios successfully', async () => {
+            axios.get.mockResolvedValue(mockResponse);
+            expect(axios.get).toHaveBeenCalledWith(expect.stringMatching(/api_category/));
+        
+            const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
+            expect(generalCategory).toBeInTheDocument();
+        });
+})
