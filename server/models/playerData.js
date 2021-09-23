@@ -5,3 +5,11 @@ class playerData {
     this.score = 0;
   }
 }
+
+
+const genPlayers = (playersArr) => {
+  const array = playersArr.map(username => new playerData(username))
+  return array
+}
+
+module.exports = { genPlayers }

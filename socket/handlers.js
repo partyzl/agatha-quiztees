@@ -1,4 +1,5 @@
 const axios = require("axios");
+const {io }= require('./server')
 const GameData = require("../server/models/GameData");
 
 
@@ -11,7 +12,7 @@ const getUsernames = () => {
 const getQuestions = async (settings) => {
   try {
       // const data = await axios.get(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
-      const data = await axios.get('https://opentdb.com/api.php?amount=10&category=&difficulty=&type=')
+      const {data} = await axios.get('https://opentdb.com/api.php?amount=10&category=&difficulty=&type=')
       const questionsArr = data.results;
       return questionsArr;
   } catch (err) {
@@ -20,12 +21,14 @@ const getQuestions = async (settings) => {
 }
 
 
-const prepareQuiz = async () => {
+const prepareQuiz = async (settings, socket) => {
   try{
     console.log('preparing')
     const usernames = getUsernames()
-    const questions = await getQuestions()
+    const questions = await getQuestions(settings)
     game = new GameData(settings, questions, usernames)
+    console.log(game)
+    socket.broadcast.emit('quiz:start', game.questions)
   }catch(err){
     console.log(err)
   }

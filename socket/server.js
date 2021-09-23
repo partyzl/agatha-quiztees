@@ -5,6 +5,7 @@ const {prepareQuiz} = require("./handlers")
 const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
+const { builtinModules } = require("module");
 
 const app = express();
 const httpServer = createServer(app);
@@ -19,8 +20,11 @@ io.on("connection", (socket) => {
   console.log("New client connected")
  
   // socket.on('player:answer', playerAnswer)
-  socket.on('quiz:prepare', prepareQuiz)
-  // socket.on('disconnect', () => console.log('disconnected'))
+  socket.on('quiz:prepare', (settings) => prepareQuiz(settings,socket))
+  socket.on('disconnect', () => console.log('disconnected'))
 });
 
 httpServer.listen(3002, console.log("socket online"));
+
+
+module.exports = {io}

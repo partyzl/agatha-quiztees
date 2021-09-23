@@ -1,3 +1,5 @@
+const {genPlayers} = require('./playerData')
+
 class GameData {
   constructor(settings, questions, playersArr) {
     this.settings = settings;
@@ -6,5 +8,6 @@ class GameData {
     this.playersArr = genPlayers(playersArr);
   }
 }
+
 
 module.exports = GameData;
