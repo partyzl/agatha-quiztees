@@ -4,9 +4,7 @@ import { answerQuestion } from "../../actions";
 import Countdown from "../Countdown";
 import "./style.css";
 
-const QuestionCard = ({ round }) => {
-    const answered = useSelector((state) => state.gameplay.answered);
-
+const QuestionCard = ({ round, options }) => {
     const answered = useSelector(state => state.gameplay.answered)
 
     const [selection, setSelection] = useState(null)

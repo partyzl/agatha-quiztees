@@ -71,16 +71,16 @@ const Results = () => {
         document.location = '/'
     }
 
-    
-        return (
-            <div className="allButtonContainerResults">
-              <div className="buttonCollapseResults">
+
+    return (
+        <div className="allButtonContainerResults">
+            <div className="buttonCollapseResults">
                 <Button onClick={playAgain} value="play again" />
                 <Button onClick={goHome} value="return home" />
-              </div>
             </div>
-          );
-    )
+        </div>
+    );
+
 }
 
 export default Results;
