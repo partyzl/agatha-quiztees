@@ -12,10 +12,11 @@ const QuestionCard = ({ round, options }) => {
 
   const dispatch = useDispatch();
 
+
+
   useEffect(() => {
-    if (selection) {
-      dispatch(answerQuestion(logAnswer()));
-    }
+    console.log(selection)
+    if (selection) { dispatch(answerQuestion(logAnswer())) }
     const renderOptions = () => {
       return options.map((choice) => (
         <button
@@ -27,8 +28,31 @@ const QuestionCard = ({ round, options }) => {
       ));
     };
     setOptionElements(renderOptions);
-    return () => setSelection(null);
-  }, [(selection, answered, round)]);
+    setSelection(null)
+  }, [selection, round])
+
+  // useEffect(() => {
+  //   if (selection) {
+  //     dispatch(answerQuestion(logAnswer()));
+  //   }
+  //   const renderOptions = () => {
+  //     return options.map((choice) => (
+  //       <button
+  //         className={`option ${showAnswer(choice)} ${isSelected(choice)}`}
+  //         disabled={answered}
+  //         onClick={clickHandler}
+  //         dangerouslySetInnerHTML={{ __html: choice }}
+  //       />
+  //     ));
+  //   };
+  //   setOptionElements(renderOptions);
+  //   return () => setSelection(null);
+  // }, [(selection, answered, round)]);
+
+  function logAnswer() {
+    const log = selection == round.correct_answer ? "correct" : "incorrect";
+    return log;
+  }
 
   function showAnswer(option) {
     const answeredClassName =
@@ -42,11 +66,6 @@ const QuestionCard = ({ round, options }) => {
     return classStyling;
   }
 
-  function logAnswer() {
-    const log = selection == round.correct_answer ? "correct" : "incorrect";
-    return log;
-  }
-
   function clickHandler(e) {
     setSelection(e.target.innerText);
   }
@@ -58,7 +77,7 @@ const QuestionCard = ({ round, options }) => {
           className="question"
           dangerouslySetInnerHTML={{ __html: round.question }}
         />
-        <div className="choices" onClick="{isSelected}">
+        <div className="choices">
           {optionElements}
         </div>
       </div>

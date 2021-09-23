@@ -37,7 +37,6 @@ const Quiz = () => {
   }, [currentQuestion]);
 
   function randomiser(options) {
-    console.log("mixing");
     const randomised = options.sort(() => Math.random() - 0.5);
     return randomised;
   }
