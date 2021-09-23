@@ -1,6 +1,7 @@
 span {
   display: flex;
   justify-content: center;
+  color: white;
 }
 .overlay {
   display: flex;
@@ -9,12 +10,11 @@ span {
   display: block;
   border-radius: 10px;
   max-width: 78%;
-  top: 0;
-  left: 0;
-  right: 0;
   justify-content: center;
+  margin: 0 auto;
 }
 .quizContainer {
   margin-top: 10vh;
   justify-content: center;
+  color: white;
 }
