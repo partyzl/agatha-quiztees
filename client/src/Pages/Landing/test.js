@@ -11,20 +11,39 @@ describe('Landing', () => {
         render(<Button />);
     })
 
-    test('it shows page header', () => {
+    test('shows page header', () => {
         expect(screen.getByRole('heading').textContent).toContain('');
     })
 
-    test("renders page buttons", () => {
-        const buttons = screen.queryByRole('button')
+    test('renders page buttons', () => {
+        const Button = screen.queryByRole('button')
         expect(screen.getByRole('button')).toBeInTheDocument()
         expect(screen.getAllByRole('button').length).toBe(4);
     });
 
-    test('buttons redirect to correct pages', () => {
-        expect().toHaveBeenCalledTimes(1);
-        expect()
-    })
+    it('renders the button to start a new game', () => {
+        const Button = screen.getByRole('link', { name: /Start/ });
+        userEvent.click(Button);
+        expect(Button.textContent).toContain('Solo Quiz');
+    });
+
+    it('renders the button to join an existing game', () => {
+        const Button = screen.getByRole('link', { name: /Join/ });
+        userEvent.click(Button);
+        expect(Button.textContent).toContain('Join Quiz');
+    });
+
+    it('renders the button to host a new game', () => {
+        const Button = screen.getByRole('link', { name: /Host/ });
+        userEvent.click(Button);
+        expect(Button.textContent).toContain('Host Quiz');
+    });
+
+    it('renders the button to check all the existing scores', () => {
+        const Button = screen.getByRole('link', { name: /Leaderboard/ });
+        userEvent.click(Button);
+        expect(Button.textContent).toContain(' Leaderboards');
+    });
 
     test('What you want to test', () =>{
         // expect().toBeInTheDocument();

@@ -4,45 +4,42 @@ import userEvent from '@testing-library/user-event'
 import axios from 'axios'
 import Setup from '.'
 
-describe('Name for test suite', ()=> {
+describe('Quiz Setup', ()=> {
+    const mockResponse = {
+        data: {
+            trivia_categories: [
+                { id: 9, name: 'General Knowledge' },
+                { id: 10, name: 'Science and Nature' }
+            ]
+        }
+    };
+
     beforeEach(() => {
         render(<Setup />) // , { initState } this might change, may also want to have it render a different init state based on the test
-    })
+        beforeEach(() => jest.resetAllMocks());
+    }
 
-    test('Includes a form to setup a quiz/create a room multiplayer', () => {
-        expect(screen.getByRole('form')).toBeInTheDocument();
-    })
+    test('renders user input fields', async () => {
+        axios.get.mockResolvedValue(mockResponse);
+        const usernameInput = screen.getAllByRole('textbox');
+        const Btn = screen.getByRole('button');
+        const form = screen.getByRole('game-setup')
+        const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
+        const usernameInput = screen.getByRole('textbox');
+        const category = screen.getAllByRole('combobox')[0];
+        const difficulty = screen.getAllByRole('combobox')[1];
+        userEvent.type(usernameInput, 'testUser');
+        userEvent.selectOptions(category, '9');
+        userEvent.selectOptions(difficulty, 'easy');
 
-    test('Includes a single form and input for entering your username', () => {
-        expect(screen.getByRole('form')).toBeInTheDocument();
-        // then check for input of type text with empty value
-    })
+        const easyOption = screen.getByRole('option', { name: 'Easy' });
 
-    test('Renders Header', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-
-    test('Renders Form', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-
-    test('Renders Footer', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
+        expect(usernameInput.value).toBe('testUser');
+        expect(generalCategory.selected).toBe(true);
+        expect(easyOption.selected).toBe(true);
+        expect(form).toBeInTheDocument();
+        expect(usernameInput.length).toBe(2);
+        expect(submitBtn).toBeInTheDocument();
     })
 
     test('What you want to test', () =>{
@@ -53,4 +50,4 @@ describe('Name for test suite', ()=> {
         // expect().toEqual();
         // expect().toBeInstanceOf();
     })
-})
+});
