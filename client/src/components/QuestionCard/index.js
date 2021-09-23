@@ -12,11 +12,11 @@ const QuestionCard = ({ round, options }) => {
 
   const dispatch = useDispatch();
 
-
+useEffect(()=> {
+  if (selection) { dispatch(answerQuestion(logAnswer())) }
+}, [selection])
 
   useEffect(() => {
-    console.log(selection)
-    if (selection) { dispatch(answerQuestion(logAnswer())) }
     const renderOptions = () => {
       return options.map((choice) => (
         <button
@@ -29,7 +29,7 @@ const QuestionCard = ({ round, options }) => {
     };
     setOptionElements(renderOptions);
     setSelection(null)
-  }, [selection, round])
+  }, [answered, round])
 
   // useEffect(() => {
   //   if (selection) {
