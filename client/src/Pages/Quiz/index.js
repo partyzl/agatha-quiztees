@@ -8,9 +8,9 @@ import { Header, Footer } from '../../Layout';
 const Quiz = () => {
     const currentIndex = useSelector(state => state.gameplay.currentIndex)
     const questions = useSelector(state => state.quizInfo.questions)
+    const timer = useSelector(state => state.gameplay.timer)
 
     const [currentQuestion, setCurrentQuestion] = useState(questions[currentIndex])
-    const [reset, setReset] = useState(false)
 
     let options = randomiser([currentQuestion.correct_answer, ...currentQuestion.incorrect_answers]);
 
@@ -21,7 +21,6 @@ const Quiz = () => {
         } else {
             setCurrentQuestion(questions[currentIndex])
         }
-        return () => setReset(existing => existing ? false : true)
     }, [currentIndex])
 
     useEffect(() => {
@@ -29,14 +28,13 @@ const Quiz = () => {
     }, [currentQuestion])
 
     function randomiser(options) {
-        console.log('mixing')
         const randomised = options.sort(() => Math.random() - 0.5)
         return randomised
     }
 
     return (
         <div>
-            <Countdown duration={10} interval={1000} delay={3000} reset={reset} />
+            <Countdown timer={timer}/>
             <QuestionCard round={currentQuestion} options={options} />
             <span>{currentIndex}</span>
         </div >

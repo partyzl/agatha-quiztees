@@ -1,5 +1,5 @@
 const io = require("socket.io-client");
-const { QuizStarted, incrementIdx, runTimer } = require("./events");
+const { QuizStarted, incrementIdx, updateTimer } = require("./events");
 
 const socket = io("http://localhost:3002");
 
@@ -14,7 +14,15 @@ function initSocket(settings) {
   // socket.on("quiz:preparing", quizPreparing)
   socket.on("quiz:start", (questions) => QuizStarted(questions));
   //socket.on("question:next", incrementIdx);
-  socket.on("quiz:timer", (timer) => runTimer(timer));
+
+
+
+  socket.on("quiz:time", (timer) => updateTimer(timer));
+
+
+
+
+  
   // socket.on("question:timeout", questionTimeout)
   // socket.on("quiz:finished", finishQuiz)
 }

@@ -1,4 +1,4 @@
-const { loadQuestions, nextQuestion } = require("../../actions");
+const { loadQuestions, nextQuestion, runTimer } = require("../../actions");
 const { store } = require("../../store");
 
 const QuizStarted = (questionInfo) => {
@@ -11,8 +11,9 @@ const incrementIdx = () => {
   store.dispatch(nextQuestion);
 };
 
-const runTimer = (timer) => {
+const updateTimer = (timer) => {
+  store.dispatch(runTimer(timer))
   console.log(timer);
 };
 
-module.exports = { QuizStarted, incrementIdx, runTimer };
+module.exports = { QuizStarted, incrementIdx, updateTimer };

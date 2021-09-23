@@ -4,31 +4,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { answerQuestion, nextQuestion } from "../../actions";
 import "./style.css";
 
-const Countdown = ({ duration, interval, delay, reset }) => {
-  const [number, setNumber] = useState(duration);
+const Countdown = ({ timer }) => {
+
 
   const dispatch = useDispatch();
-
   const answered = useSelector((state) => state.gameplay.answered);
 
   useEffect(() => {
-    if (number > 0) {
-      setTimeout(() => setNumber((existing) => existing - 1), interval);
-    } else {
-      if (!answered) {
-        dispatch(answerQuestion("", [], []));
-      }
-      setTimeout(() => dispatch(nextQuestion()), delay);
+    if (timer == 0 && !answered) {
+      dispatch(answerQuestion("incorrect", [], []));
+      dispatch(nextQuestion());
+    } else if (timer == 0) {
+      dispatch(nextQuestion());
     }
-  }, [number]);
-
-  useEffect(() => {
-    setNumber(duration);
-  }, [reset]);
+  }, [timer]);
 
   return (
     <div>
-      <span>{number}</span>
+      <span>{timer}</span>
     </div>
   );
 };

@@ -20,6 +20,7 @@ io.on("connection", (socket) => {
   console.log("New client connected");
 
   // socket.on('player:answer', playerAnswer)
+  
   socket.on("quiz:prepare", async (settings) => {
     const gameData = await prepareQuiz(settings, socket);
     runTimer(gameData.questions.length, socket);

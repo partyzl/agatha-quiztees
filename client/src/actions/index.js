@@ -1,5 +1,8 @@
 // --------------------for gameplayReducer-----------------------------------//
-
+const runTimer = (timer) => ({
+  type: "RUN_TIMER",
+  payload: timer
+})
 
 const answerQuestion = (answers, score, stats) => ({
   type: "ANSWER_QUESTION",
@@ -102,4 +105,5 @@ export {
   loadingQuestions,
   loadScores,
   loadingScores,
+  runTimer
 };

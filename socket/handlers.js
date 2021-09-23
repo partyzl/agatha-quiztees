@@ -24,7 +24,6 @@ const prepareQuiz = async (settings, socket) => {
     const usernames = getUsernames();
     const questions = await getQuestions(settings);
     const game = new GameData(settings, questions, usernames);
-    console.log(game);
     socket.broadcast.emit("quiz:start", game.questions);
     return game;
   } catch (err) {
@@ -33,12 +32,25 @@ const prepareQuiz = async (settings, socket) => {
 };
 
 const runTimer = (questionNum, socket) => {
-  for (let j = 0; j < questionNum - 1; j++) {
-    for (let i = 15; i > 0; i--) {
-      setTimeout(() => socket.broadcast.emit("quiz:timer", i), 1000);
+  let timer = 15;
+  let question = 1;
+  setInterval(function () {
+    socket.broadcast.emit("quiz:time", timer)
+    if (timer > 0) {
+      timer--
+    } else if (timer == 0 && question < questionNum) {
+      timer = 15;
+      question++
+    } else {
+
     }
-  }
+    console.log(timer)
+  }, 1000)
 };
+
+
+
+
 module.exports = {
   prepareQuiz,
   runTimer,
