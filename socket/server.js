@@ -25,6 +25,3 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(3002, console.log("socket online"));
-
-
-module.exports = {io}

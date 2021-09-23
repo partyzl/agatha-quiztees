@@ -1,5 +1,4 @@
 const axios = require("axios");
-const {io }= require('./server')
 const GameData = require("../server/models/GameData");
 
 

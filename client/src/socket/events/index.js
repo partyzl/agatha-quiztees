@@ -4,13 +4,13 @@ const { store } = require("../../store")
 
 
 
-const QuizStarted = (questionInfo) => {
+const quizStarted = (questionInfo) => {
     store.dispatch(loadQuestions(questionInfo))
     document.location = '/quiz'
 }
 
-const nextQuestion = () => {
+const incrementIndex = () => {
     store.dispatch(nextQuestion)
 }
 
-module.exports = { QuizStarted }
+module.exports = { quizStarted, incrementIndex }
