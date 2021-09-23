@@ -1,6 +1,5 @@
-import { render } from 'react-dom'
+import { screen, render } from "@testing-library/react";
 import Leaderboard from ".";
-import { screen } from "@testing-library/react";
 
 jest.mock('axios');
 

@@ -1,7 +1,5 @@
 import Form from ".";
 import { screen, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { render } from 'react-dom'
 
 describe("Form layout", () => {
 
@@ -70,50 +68,50 @@ describe("Form", () =>{
   })
 
   test('it renders a form with no users in state', () => {
-    renderWithReduxProvider(<Form />, { initState });
+    render(<Form />, { initState });
     let form = screen.getByRole('form');
     expect(form).toBeInTheDocument();
   });
 
   test('it renders a form with a question Index of 0 in state', () => {
-    renderWithReduxProvider(<Form />, { initState });
+    render(<Form />, { initState });
     let form = screen.getByRole('form');
     expect(form).toBeInTheDocument();
   });
 
   test('it renders a form with no ites in the results array in state', () => {
-    renderWithReduxProvider(<Form />, { initState });
+    render(<Form />, { initState });
     let form = screen.getByRole('form');
     expect(form).toBeInTheDocument();
   });
 
   test('it renders a form with a value of 0 in state', () => {
-    renderWithReduxProvider(<Form />, { initState });
+    render(<Form />, { initState });
     let form = screen.getByRole('form');
     expect(form).toBeInTheDocument();
   });
 
   
   test("it renders the form div", () => {
-    renderWithReduxProvider(<Form />);
+    render(<Form />);
     const formDiv = screen.getByRole("formContainer");
     expect(formDiv).toBeInTheDocument();
   });
 
   test("it renders the username field", () => {
-    renderWithReduxProvider(<Form />);
+    render(<Form />);
     const usernameTextbox = screen.getByRole("username");
     expect(usernameTextbox).toBeInTheDocument();
   });
 
   test("it renders the category drop down menu", () => {
-    renderWithReduxProvider(<Form />);
+    render(<Form />);
     const categoryDropDown = screen.getByRole("categoryDropDown");
     expect(categoryDropDown).toBeInTheDocument();
   });
 
   test("it renders the difficulty drop down menu", () => {
-    renderWithReduxProvider(<Form />);
+    render(<Form />);
     const diffDropDown = screen.getByRole("diffDropDown");
     expect(diffDropDown).toBeInTheDocument();
   });

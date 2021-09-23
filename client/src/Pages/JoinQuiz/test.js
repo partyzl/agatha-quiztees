@@ -1,5 +1,4 @@
-import { render } from 'react-dom';
-import { screen } from '@testing-library/react';
+import { screen, render } from "@testing-library/react";
 import JoinQuiz from '.';
 
 describe('Name for test suite', ()=> {
@@ -9,7 +8,7 @@ describe('Name for test suite', ()=> {
 
     it('render joinform', () => {
         const joinform = screen.getByRole('form');
-        expect(joinform.textContent).toBe((e.target.value));
+        expect(joinform.textContent).toBe();
     });
 
     it('renders user input fields', async () => {

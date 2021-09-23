@@ -1,8 +1,7 @@
-import { screen } from '@testing-library/react';
+import { screen, render } from "@testing-library/react";
 import Landing from '.';
 import { Button } from '../../components';
 import { MemoryRouter } from 'react';
-import { render } from 'react-dom'
 
 describe('Landing', () => {
 
@@ -16,8 +15,8 @@ describe('Landing', () => {
     })
 
     test('renders page buttons', () => {
-        const Button = screen.queryByRole('button')
-        expect(screen.getByRole('button')).toBeInTheDocument()
+        const button = screen.queryByRole('button')
+        expect(button).toBeInTheDocument()
         expect(screen.getAllByRole('button').length).toBe(4);
     });
 

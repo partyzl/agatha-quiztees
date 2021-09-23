@@ -1,5 +1,4 @@
-import { render } from 'react-dom'
-import { screen } from '@testing-library/react'
+import { screen, render } from "@testing-library/react";
 import Results from '.'
 import {Button} from '../../components/Button';
 

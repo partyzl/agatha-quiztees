@@ -1,6 +1,5 @@
 import { MemoryRouter } from 'react';
-import { render } from 'react-dom'
-import { screen } from '@testing-library/react';
+import { screen, render } from "@testing-library/react";
 import WaitingRoom from '.';
 
 const getInitState = (host, error) => (
