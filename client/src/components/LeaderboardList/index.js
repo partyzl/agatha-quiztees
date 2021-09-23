@@ -1,6 +1,6 @@
 import React from "react";
 
-const Leaderboardlist = ({ scores }) => {
+const LeaderboardList = ({ scores }) => {
   //for loop for position
 
   return (
