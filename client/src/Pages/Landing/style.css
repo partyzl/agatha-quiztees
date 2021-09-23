@@ -1,5 +1,3 @@
-.buttonContainer {
-}
 @media screen and (min-width: 1024px) {
   .buttonCollapse {
     display: flex;
@@ -7,13 +5,27 @@
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-    
   }
+
   .allButtonContainer {
     display: flex;
     justify-content: center;
   }
 }
 
+@media screen and (max-width: 940px) {
+  .buttonCollapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .allButtonContainer {
+    display: flex;
+    justify-content: center;
+  }
+}
 
 /* #D01362 #F7770D */
