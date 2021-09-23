@@ -5,7 +5,6 @@ import { SimpleSlider } from "../../components";
 import { Header } from '../../Layout';
 import { Footer } from '../../Layout';
 import './styles.css'
-// import {Questionmark} from './questionmarksvg.svg'
 
 const WaitingRoom = () => {
     return (
@@ -30,20 +29,25 @@ const WaitingRoom = () => {
 	        },
 	        "shape": {
 	            "type": 
-	                "circle"
-            },
-	            // "image": [
-	            //     {
-	            //         "src": './questionmarksvg.svg',
-	            //         "height": 200,
-	            //         "width": 230
-	            //     },
-	                
-	        //     ]
-	        // },
+                    "image",
+    
+                    "options": {
+                        "image": {
+
+                            "src": "https://friconix.com/png/fi-cnsuxx-question-mark.png",
+                            "width": 202,
+                            "height": 200
+                        }}},
+                    
+
 	        "color": {
-	            "value": "#fff"
-	        },
+	            "value": "#FF7F50"
+                },
+            "opacity": {
+                "value": 0.9,
+                "anim": {
+                    "enable": false,
+                }},
 	        "size": {
 	            "value": 30,
 	            "random": false,

@@ -1,16 +1,37 @@
-
 .option {
-    border: none
+  border: none;
 }
 
-.correct{
-    background-color: green;
+.correct {
+  background-color: green;
 }
 
-.incorrect{
-    background-color: red;
+.incorrect {
+  background-color: red;
 }
 
-.selected{
-    border:solid gold
+.selected {
+  border: solid gold;
+}
+
+.quizContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.choices > button {
+  border-radius: 15%;
+  color: white;
+  background-color: #f88526
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+}
+.question {
+  display: flex;
+  justify-content: center;
 }

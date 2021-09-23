@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { answerQuestion } from '../../actions'
-import './style.css'
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { answerQuestion } from "../../actions";
+import Countdown from "../Countdown";
+import "./style.css";
 
-
-const QuestionCard = ({ round }) => {
-
+const QuestionCard = ({ round, options }) => {
     const answered = useSelector(state => state.gameplay.answered)
 
     const [selection, setSelection] = useState(null)
     const [optionElements, setOptionElements] = useState()
 
     const dispatch = useDispatch()
-    const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
         if (selection) { dispatch(answerQuestion(logAnswer())) }
@@ -32,33 +30,31 @@ const QuestionCard = ({ round }) => {
         return classStyling
     }
 
-    function randomiser(options) {
-        const randomised = options.sort(() => Math.random() - 0.5)
-        return randomised
-    }
-
     function isSelected(option) {
         const classStyling = option == selection ? 'selected' : '';
         return classStyling
     }
 
-    function logAnswer(){
+    function logAnswer() {
         const log = selection == round.correct_answer ? 'correct' : 'incorrect';
         return log;
     }
 
     function clickHandler(e) {
-        setSelection(e.target.innerText)
+        setSelection(e.target.innerText);
     }
 
     return (
         <article>
-            <div className='question' dangerouslySetInnerHTML={{ __html: round.question }} />
-            <div className='choices'>
-                {optionElements}
+            <div className="quizContainer">
+                <div
+                    className="question"
+                    dangerouslySetInnerHTML={{ __html: round.question }}
+                />
+                <div className="choices">{optionElements}</div>
             </div>
         </article>
-    )
-}
+    );
+};
 
 export default QuestionCard;
