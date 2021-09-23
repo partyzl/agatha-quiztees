@@ -16,8 +16,13 @@ const getInitState = (host, error) => (
 )
 
 describe('WaitingRoom', () => {
+    test('rendersparticles for my boiz', () => {
+        renderWithReduxAndRouter(<Particles />)
+        expect(screen.firstChild.classList.contains('particles')).toBe(true)
+        expect(screen.firstChild).toHaveClass('particles')
+    });
 
-    it('renders the header and start button', () => {
+    test('renders the header and start button', () => {
         const initState = getInitState(true, null)
         renderWithReduxAndRouter(<WaitingRoom />, { initState })
 
@@ -27,7 +32,7 @@ describe('WaitingRoom', () => {
         expect(button).toBeInTheDocument();
     });
 
-    it('renders error message if error is not null', () => {
+    test('renders error message if error is not null', () => {
         const initState = getInitState(true, 'test error message');
         renderWithReduxAndRouter(<WaitingRoom />, { initState })
         const alert = screen.getByRole('alert');
