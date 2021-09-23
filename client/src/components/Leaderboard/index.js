@@ -5,7 +5,7 @@ const Leaderboardlist = ({ scores }) => {
 
   return (
     <>
-      <div className="leaderboard-item">
+      <div className="leaderboard-item" aria-label="leaderboard-item">
         <table>
           <tr>
             <td>{scores.username}</td>
