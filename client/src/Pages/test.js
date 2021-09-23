@@ -35,11 +35,4 @@ describe('WaitingRoomPage', () => {
         const alert = screen.getByRole('alert');
         expect(alert.textContent).toBe('test error message');
     });
-
-    it('renders instructions if the player is not a host', () => {
-        const initState = getInitState(false, null);
-        const roomMsg = screen.getByRole('guest-instructions');
-        expect(roomMsg).toBeInTheDocument();
-    })
-
 })
