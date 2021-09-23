@@ -10,7 +10,7 @@ const Landing = () => {
   let history = useHistory();
 
   const hostQuiz = () => {
-    history.push("/settings");
+    history.push("/setup");
   };
 
   const joinQuiz = () => {
@@ -20,7 +20,7 @@ const Landing = () => {
     history.push("/leaderboard");
   };
   const singlePlayer = () => {
-    history.push("/settings");
+    history.push("/setup");
   };
 
   return (

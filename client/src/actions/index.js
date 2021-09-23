@@ -1,12 +1,14 @@
-
 // --------------------for gameplayReducer-----------------------------------//
-const answerQuestion = (answer, score, stats) => ({
-    type: 'ANSWER_QUESTION',
-    payload: {
-        answer: answer,
-        score: score,
-        stats: stats
-    }
+
+
+const answerQuestion = (answers, score, stats) => ({
+  type: "ANSWER_QUESTION",
+  payload: {
+    answers: answers,
+
+    score: score,
+    stats: stats,
+  },
 });
 
 const nextQuestion = () => ({ type: "NEXT_QUESTION" });
@@ -45,39 +47,59 @@ const getQuestions = async (dispatch, settings) => {
   }
 };
 
+
 const getScores = async (dispatch, filter) => {
-    try {
-        dispatch(loadingScores);
-        const playerScores = await scoresRequest(filter);
-        dispatch(loadScores(playerScores));
-    } catch (err) {
-        dispatch(setError(err.message));
-    }
-}
+  try {
+    dispatch(loadingScores);
+    const playerScores = await scoresRequest(filter);
+    dispatch(loadScores(playerScores));
+  } catch (err) {
+    dispatch(setError(err.message));
+  }
+};
 
 // --------------------------------helpers-----------------------------------//
 
 const questionsRequest = async (settings) => {
-    try {
-        // const resp = await fetch(`https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`);
-        const resp = await fetch('https://opentdb.com/api.php?amount=10&category=&difficulty=&type=')
-        const data = await resp.json();
-        const questionsArr = data.results;
-        return questionsArr;
-    } catch (err) {
-        throw new Error('failed to fetch questions');
-    }
-}
+  try {
+    const resp = await fetch(
+      `https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`
+    );
+
+    // const resp = await fetch(
+    //   "https://opentdb.com/api.php?amount=10&category=&difficulty=&type="
+    // );
+
+    const data = await resp.json();
+    const questionsArr = data.results;
+    return questionsArr;
+  } catch (err) {
+    throw new Error("failed to fetch questions");
+  }
+};
 
 const scoresRequest = async (filter) => {
-    try {
-        const resp = await fetch(filter ? `insert link to deployed server/${filter}` : 'insert link');
-        const data = await resp.json();
-        //expecting an array to be returned from API
-        return data;
-    } catch (err) {
-        throw new Error('failed to fetch scores');
-    }
-}
+  try {
+    const resp = await fetch(
+      filter ? `insert link to deployed server/${filter}` : "insert link"
+    );
+    const data = await resp.json();
+    //expecting an array to be returned from API
+    return data;
+  } catch (err) {
+    throw new Error("failed to fetch scores");
+  }
+};
 
-export { getQuestions, getScores, answerQuestion, nextQuestion, endGame, setError, loadQuestions, loadingQuestions, loadScores, loadingScores };
+export {
+  getQuestions,
+  getScores,
+  answerQuestion,
+  nextQuestion,
+  endGame,
+  setError,
+  loadQuestions,
+  loadingQuestions,
+  loadScores,
+  loadingScores,
+};
