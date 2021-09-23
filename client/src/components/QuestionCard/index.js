@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { answerQuestion } from "../../actions";
-// import Countdown from "../Countdown";
 import "./style.css";
 
 const QuestionCard = ({ round, options }) => {
@@ -12,9 +11,9 @@ const QuestionCard = ({ round, options }) => {
 
   const dispatch = useDispatch();
 
-useEffect(()=> {
-  if (selection) { dispatch(answerQuestion(logAnswer())) }
-}, [selection])
+  useEffect(() => {
+    if (selection) { dispatch(answerQuestion(logAnswer())) }
+  }, [selection])
 
   useEffect(() => {
     const renderOptions = () => {
@@ -30,24 +29,6 @@ useEffect(()=> {
     setOptionElements(renderOptions);
     setSelection(null)
   }, [answered, round])
-
-  // useEffect(() => {
-  //   if (selection) {
-  //     dispatch(answerQuestion(logAnswer()));
-  //   }
-  //   const renderOptions = () => {
-  //     return options.map((choice) => (
-  //       <button
-  //         className={`option ${showAnswer(choice)} ${isSelected(choice)}`}
-  //         disabled={answered}
-  //         onClick={clickHandler}
-  //         dangerouslySetInnerHTML={{ __html: choice }}
-  //       />
-  //     ));
-  //   };
-  //   setOptionElements(renderOptions);
-  //   return () => setSelection(null);
-  // }, [(selection, answered, round)]);
 
   function logAnswer() {
     const log = selection == round.correct_answer ? "correct" : "incorrect";
