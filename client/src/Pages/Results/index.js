@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getQuestions, endGame } from '../../actions'
 import { LeaderboardList, Button } from '../../components'
+import "./styles.css";
 
 const Results = () => {
     const dispatch = useDispatch()
@@ -70,13 +71,15 @@ const Results = () => {
         document.location = '/'
     }
 
-    return (
-        <div>
-            <Button onClick={playAgain} value='play again' />
-            <Button onClick={goHome} value='return home' />
-            <p>Results</p>
-            {resultsBoard}
-        </div>
+    
+        return (
+            <div className="allButtonContainerResults">
+              <div className="buttonCollapseResults">
+                <Button onClick={playAgain} value="play again" />
+                <Button onClick={goHome} value="return home" />
+              </div>
+            </div>
+          );
     )
 }
 

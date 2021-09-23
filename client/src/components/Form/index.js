@@ -8,15 +8,10 @@ const Form = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
-  const [category, setCategory] = useState(9);
+  const [category, setCategory] = useState("");
   const [players, setPlayers] = useState("player1");
   const [difficulty, setDifficulty] = useState("easy");
   const [question, setQuestions] = useState("boolean");
-
-  useEffect(
-    () => console.log([username, category, players, difficulty, question]),
-    [username, category, players, difficulty, question]
-  );
 
   const submitHandler = async (event) => {
     const settings = {
@@ -27,7 +22,6 @@ const Form = () => {
     };
     event.preventDefault();
     await getQuestions(dispatch, settings);
-    console.log(category);
     history.push("/quiz");
   };
 
@@ -91,9 +85,9 @@ const Form = () => {
               setDifficulty(e.target.value);
             }}
           >
-            <option value="easy">easy</option>
-            <option value="medium">medium</option>
-            <option value="hard">hard</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
           </select>
           <label htmlFor="question">Question Type</label>
           <select

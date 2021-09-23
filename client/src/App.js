@@ -14,13 +14,13 @@ function App() {
     <div id="app">
       <main>
         <Switch atEnter>
-          <Route exact path="/" component={Landing}/>
-          <Route path="/setup" component={Setup}/>
-          <Route path="/waitingroom" component={WaitingRoom}/>
-          <Route path="/quiz" component={Quiz}/>
-          <Route path="/results" component={Results}/>
-          {/* <Route path="/leaderboard" component={Leaderboard}/> */}
-          <Route path="/joiningquiz" component={JoinQuiz}/>
+          <Route exact path="/" component={Landing} />
+          <Route path="/setup" component={Setup} />
+          <Route path="/waitingroom" component={WaitingRoom} />
+          <Route path="/quiz" component={Quiz} />
+          <Route path="/results" component={Results} />
+          <Route path="/leaderboard" component={Leaderboard} />
+          <Route path="/joinquiz" component={JoinQuiz} />
         </Switch>
       </main>
     </div>

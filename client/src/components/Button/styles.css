@@ -6,17 +6,19 @@
   text-transform: uppercase;
   letter-spacing: 0.4em;
   font-size: 30px;
-  padding: 1em;
   width: 30%;
+  height: 10%;
   min-width: 340px;
+  min-height: 50px;
   text-align: center;
   text-decoration: none;
   font-family: "Poiret One" !important;
-  color: goldenrod;
+  color: white;
   background: transparent;
   position: relative;
   transition: 0.5s;
   align-items: center;
+  background-color: #f7770d;
 }
 
 .app-button:before,
@@ -46,20 +48,20 @@
 
 .app-button:hover {
   color: white;
-  background-color: goldenrod;
+  background-color: #f88526;
 }
 
 .app-button:active {
   color: white;
-  background-color: goldenrod;
+  background-color: #f88526;
 }
 
 .app-button:focus {
   color: white;
-  background-color: goldenrod;
+  background-color: #f88526;
 }
 
-.buttonContainer {
+.allButtonContainerLanding {
   display: flex;
   justify-content: center;
 }
