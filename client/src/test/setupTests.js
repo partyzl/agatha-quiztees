@@ -19,7 +19,16 @@ jest.mock('axios')
 axios.get.mockResolvedValue({ data: { message: [] }})
 
 const TestProviders = ({ initState }) => {
-    initState ||= {categories: [], settings: [], scores: [], loading: false }
+    initState ||= {
+        categories: [], 
+        settings: [], 
+        questions: [],
+        scores: [], 
+        loading: false,
+        currentPlayer: '',
+        error: null
+    }
+
     let testReducer = () => questionsReducer(initState, { type: "@@INIT" });
     const testStore = createStore(() => mainReducer(initState, { type: '@@INIT' }), applyMiddleware(thunk))
 
