@@ -19,7 +19,7 @@ function App() {
           <Route path="/waitingroom" component={WaitingRoom}/>
           <Route path="/quiz" component={Quiz}/>
           <Route path="/results" component={Results}/>
-          <Route path="/leaderboard" component={Leaderboard}/>
+          {/* <Route path="/leaderboard" component={Leaderboard}/> */}
           <Route path="/joiningquiz" component={JoinQuiz}/>
         </Switch>
       </main>

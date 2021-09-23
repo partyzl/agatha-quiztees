@@ -48,9 +48,7 @@ const getQuestions = async (dispatch, settings) => {
 };
 
 
-
 const getScores = async (dispatch, filter) => {
-
   try {
     dispatch(loadingScores);
     const playerScores = await scoresRequest(filter);
