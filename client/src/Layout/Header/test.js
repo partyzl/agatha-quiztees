@@ -1,10 +1,12 @@
-import { screen } from '@testing-library/react';
 import Header from '.';
+import { screen, within } from '@testing-library/react';
 
-describe('Header', () => {
-    test('it renders an H1', () => {
-        render(<Header />);
-        const  = screen.querySelector('header');
-        expect(header).toBeInTheDocument();
-    })
-})
+describe('header', () => {
+	beforeEach(() => {
+		render(<Header />);
+	});
+	test('Our H1 is present', () => {
+		let strapline = screen.getByLabelText('quiz-title');
+		expect(strapline).toBeInTheDocument();
+	});
+});
