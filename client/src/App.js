@@ -1,4 +1,5 @@
 import React from "react";
+// import { spring, AnimatedRoute } from "react-router-transition";
 import { Switch, Route } from "react-router-dom";
 import { Landing } from "./Pages";
 import { Setup } from "./Pages";

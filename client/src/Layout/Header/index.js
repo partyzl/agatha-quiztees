@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="header">
       {/* <img src={logo} alt="logo" /> */}
-      <h1>The Quiz With No Name </h1>
+      <h1>BrainWaves</h1>
     </div>
   );
 };

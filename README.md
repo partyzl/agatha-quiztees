@@ -30,17 +30,20 @@ You will be working in small teams to create an online quiz game in React.
 
 ### Installation
 
+<!-- To begin the development, run `npm start` or `yarn start`.
+To create a production bundle, use `npm run build` or `yarn build`. -->
+
 ### Usage
 
 ## Change Log
 
 ###
 
-- [x] 
+- [x]
 
 ###
 
-- [x]  
+- [x]
 
 # Technologies used
 

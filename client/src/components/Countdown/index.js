@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { answerQuestion, nextQuestion } from "../../actions";
-import "./styles.css";
+import "./style.css";
 
 const Countdown = ({ duration, interval, delay, reset }) => {
-
   const [number, setNumber] = useState(duration);
 
   const dispatch = useDispatch();
@@ -43,7 +42,7 @@ export default Countdown;
 //     var style = {
 //         '--duration': Math.floor(Number(duration)/1000)
 //     };
-    
+
 //     useEffect(()=>{
 //         const timer = setTimeout(() => {
 //             endAction('Timeout called!');
@@ -51,7 +50,7 @@ export default Countdown;
 //           return () => clearTimeout(timer);
 //     },[])
 //     return (
-       
+
 //         <div className='timebar' style={style}>
 //             <div></div>
 //         </div>
@@ -59,4 +58,3 @@ export default Countdown;
 
 // }
 // export default Timebar;
-
