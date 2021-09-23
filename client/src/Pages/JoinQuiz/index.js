@@ -5,7 +5,7 @@ import { Footer } from "../../Layout";
 import { JoinForm } from "../../components";
 import { Button } from "../../components";
 import "./styles.css";
-import { Landing, WaitingRoom } from "..";
+import { Landing, WaitingRoom } from "../../Pages";
 
 const JoinQuiz = () => {
   let history = useHistory();
