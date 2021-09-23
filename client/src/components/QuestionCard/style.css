@@ -18,8 +18,20 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
 }
 
 .choices > button {
   border-radius: 15%;
+  color: white;
+  background-color: #f88526;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+}
+.question {
+  display: flex;
+  justify-content: center;
 }

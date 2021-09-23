@@ -13,11 +13,6 @@ const Form = () => {
   const [difficulty, setDifficulty] = useState("easy");
   const [question, setQuestions] = useState("boolean");
 
-  useEffect(
-    () => console.log([username, category, players, difficulty, question]),
-    [username, category, players, difficulty, question]
-  );
-
   const submitHandler = async (event) => {
     const settings = {
       amount: 10,

@@ -32,7 +32,7 @@ const Quiz = () => {
 
   return (
     <div>
-      <Countdown duration={100000} interval={1000} delay={3000} reset={reset} />
+      <Countdown duration={10} interval={1000} delay={3000} reset={reset} />
       <div className="overlay">
         <div className="quizContainer">
           <span>{currentIndex}</span>
