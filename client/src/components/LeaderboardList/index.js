@@ -18,4 +18,4 @@ const Leaderboardlist = ({ scores }) => {
   );
 };
 
-export default Leaderboardlist;
+export default LeaderboardList;
