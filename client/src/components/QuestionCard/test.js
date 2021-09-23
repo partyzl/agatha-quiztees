@@ -1,8 +1,12 @@
 import QuestionCard from '.';
 
 describe('Question', ()=> {
+
+    beforeEach(() => {
+        renderWithReduxProvider(<QuestionCard question={testQuestion} selected={(e)=>console.log(e)} />) // , { initState } this might change, may also want to have it render a different init state based on the test
+    })
     
-    test('It check if renders a div whose class is question', () => {       
+    test('Checks that it renders a div with a question class', () => {       
         const testQuestion={
             category: "Entertainment: Musicals & Theatres",
             type: "multiple",
@@ -16,7 +20,6 @@ describe('Question', ()=> {
             ]
         }
 
-        renderWithReduxProvider(<QuestionCard question={testQuestion} selected={(e)=>console.log(e)} />)
         let question = document.querySelector('.question');
         expect(question).toBeInTheDocument();
     })

@@ -1,12 +1,23 @@
-import { render } from 'react-dom'
-import {screen, waitFor} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import axios from 'axios'
-import App from '../../App'
+import { screen } from '@testing-library/react';
+import Landing from '.';
+import { Button } from '../../components';
 
-describe('Name for test suite', ()=> {
-    beforeEach(() => {
-        renderWithReduxProvider(<App />) // , { initState } this might change, may also want to have it render a different init state based on the test
+describe('Landing', () => {
+    test('it shows page header', () => {
+        render(<Landing/>)
+        expect(screen.getByRole('heading').textContent).toContain('');
+    })
+
+    test("renders page buttons", () => {
+        renderWithReduxProvider(<Button />);
+        const buttons = screen.queryByRole('button')
+        expect(buttons).toBeInTheDocument();
+    });
+
+    test('buttons redirect to correct pages', () => {
+        renderWithReduxProvider(<Button />);
+        expect().toHaveBeenCalledTimes(1);
+        expect()
     })
 
     test('What you want to test', () =>{
