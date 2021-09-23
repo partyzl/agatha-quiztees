@@ -1,9 +1,11 @@
-
 // --------------------for gameplayReducer-----------------------------------//
+
+
 const answerQuestion = (answers, score, stats) => ({
   type: "ANSWER_QUESTION",
   payload: {
     answers: answers,
+
     score: score,
     stats: stats,
   },
@@ -45,6 +47,7 @@ const getQuestions = async (dispatch, settings) => {
   }
 };
 
+
 const getScores = async (dispatch, filter) => {
   try {
     dispatch(loadingScores);
@@ -62,6 +65,11 @@ const questionsRequest = async (settings) => {
     const resp = await fetch(
       `https://opentdb.com/api.php?amount=${settings.amount}&category=${settings.category}&difficulty=${settings.difficulty}&type=${settings.type}`
     );
+
+    // const resp = await fetch(
+    //   "https://opentdb.com/api.php?amount=10&category=&difficulty=&type="
+    // );
+
     const data = await resp.json();
     const questionsArr = data.results;
     return questionsArr;
