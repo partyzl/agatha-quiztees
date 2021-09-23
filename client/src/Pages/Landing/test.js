@@ -17,7 +17,8 @@ describe('Landing', () => {
 
     test("renders page buttons", () => {
         const buttons = screen.queryByRole('button')
-        expect(buttons).toBeInTheDocument();
+        expect(screen.getByRole('button')).toBeInTheDocument()
+        expect(screen.getAllByRole('button').length).toBe(4);
     });
 
     test('buttons redirect to correct pages', () => {
