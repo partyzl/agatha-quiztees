@@ -6,7 +6,7 @@ import Setup from '.'
 
 describe('Name for test suite', ()=> {
     beforeEach(() => {
-        renderWithReduxProvider(<Setup />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<Setup />) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
 
     test('Includes a form to setup a quiz/create a room multiplayer', () => {

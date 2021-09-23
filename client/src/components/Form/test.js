@@ -1,11 +1,13 @@
 import Form from ".";
 import { screen, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { render } from 'react-dom'
 
 describe("Form layout", () => {
 
   beforeEach(() => {
-    renderWithReduxProvider(<Form />);
+    // renderWithReduxProvider(<Form />);
+    render(<Form />)
   });
 
   test("it renders a form", () => {

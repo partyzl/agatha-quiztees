@@ -2,12 +2,13 @@ import { screen } from '@testing-library/react';
 import Landing from '.';
 import { Button } from '../../components';
 import { MemoryRouter } from 'react';
+import { render } from 'react-dom'
 
 describe('Landing', () => {
 
     beforeAll(() => {
         render(<Landing />, { wrapper: MemoryRouter })
-        renderWithReduxProvider(<Button />);
+        render(<Button />);
     })
 
     test('it shows page header', () => {

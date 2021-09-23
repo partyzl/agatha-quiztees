@@ -1,4 +1,5 @@
 import Countdown from '.';
+import { render } from 'react-dom'
 
 describe('Countdown', ()=> {
     beforeEach(() => {

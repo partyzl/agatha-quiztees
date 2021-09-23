@@ -1,9 +1,10 @@
 import QuestionCard from '.';
+import { render } from 'react-dom'
 
 describe('Question', ()=> {
 
     beforeEach(() => {
-        renderWithReduxProvider(<QuestionCard question={testQuestion} selected={(e)=>console.log(e)} />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<QuestionCard question={testQuestion} selected={(e)=>console.log(e)} />) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
     
     test('Checks that it renders a div with a question class', () => {       

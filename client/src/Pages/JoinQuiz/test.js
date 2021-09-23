@@ -6,7 +6,7 @@ import JoinQuiz from '.';
 
 describe('Name for test suite', ()=> {
     beforeEach(() => {
-        renderWithReduxProvider(<JoinQuiz />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<JoinQuiz />) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
 
     test('What you want to test', () =>{

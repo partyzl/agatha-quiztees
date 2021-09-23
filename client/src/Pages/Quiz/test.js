@@ -5,7 +5,7 @@ import axios from 'axios'
 
 describe('Name for test suite', ()=> {
     beforeEach(() => {
-        renderWithReduxProvider(<Quiz />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<Quiz />) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
 
     test('QuestionCard renders on page', () =>{
