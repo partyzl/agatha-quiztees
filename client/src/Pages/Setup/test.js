@@ -20,11 +20,11 @@ describe('Quiz Setup', ()=> {
 
     test('renders user input fields', async () => {
         axios.get.mockResolvedValue(mockResponse);
-        const usernameInput = screen.getAllByRole('textbox');
+        const usernameInput = screen.getByRole('text');
         const Btn = screen.getByRole('button');
         const form = screen.getByRole('game-setup')
         const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
-        const usernameInput = screen.getByRole('text');
+        
         const category = screen.getAllByRole('combobox')[0];
         const difficulty = screen.getAllByRole('combobox')[1]; // no combobox but stole this from testing library need to change to get by value
         userEvent.type(usernameInput, 'testUser');
@@ -38,7 +38,7 @@ describe('Quiz Setup', ()=> {
         expect(easyOption.selected).toBe(true);
         expect(form).toBeInTheDocument();
         expect(usernameInput.length).toBe(2);
-        expect(submitBtn).toBeInTheDocument();
+        expect(Btn).toBeInTheDocument();
     })
 
     test('What you want to test', () =>{
