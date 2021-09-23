@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getQuestions, endGame } from "../../actions";
 import { Button } from "../../components";
+import "./styles.css";
 
 const Results = () => {
   const dispatch = useDispatch();
@@ -27,9 +28,11 @@ const Results = () => {
   }
 
   return (
-    <div className="buttonContainer">
-      <Button onClick={playAgain} value="play again" />
-      <Button onClick={goHome} value="return home" />
+    <div className="allButtonContainerResults">
+      <div className="buttonCollapseResults">
+        <Button onClick={playAgain} value="play again" />
+        <Button onClick={goHome} value="return home" />
+      </div>
     </div>
   );
 };

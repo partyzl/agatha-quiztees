@@ -28,20 +28,20 @@ const Landing = () => {
       <Header />
       <div>
         <SimpleSlider />
-        <div className="allButtonContainer">
-          <div className="buttonCollapse">
-            <div className="buttonContainer">
+        <div className="allButtonContainerLanding">
+          <div className="buttonCollapseLanding">
+            <div className="buttonContainerLanding">
               <Button value="Solo Quiz" onClick={singlePlayer} />
             </div>
-            <div className="buttonContainer">
+            <div className="buttonContainerLanding">
               <Button value="Host Quiz" onClick={hostQuiz} />
             </div>
           </div>
-          <div className="buttonCollapse">
-            <div className="buttonContainer">
+          <div className="buttonCollapseLanding">
+            <div className="buttonContainerLanding">
               <Button value="Join Quiz" onClick={joinQuiz} />
             </div>
-            <div className="buttonContainer">
+            <div className="buttonContainerLanding">
               <Button value="Leaderboard" onClick={leaderboard} />
             </div>
           </div>
