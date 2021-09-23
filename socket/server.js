@@ -1,6 +1,6 @@
 const GameData = require("../server/models/GameData");
 const playerData = require("../server/models/playerData");
-const {prepareQuiz} = require("./handlers")
+const { prepareQuiz, runTimer } = require("./handlers");
 
 const express = require("express");
 const { createServer } = require("http");
@@ -17,14 +17,14 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-  console.log("New client connected")
- 
+  console.log("New client connected");
+
   // socket.on('player:answer', playerAnswer)
-  socket.on('quiz:prepare', (settings) => prepareQuiz(settings,socket))
-  socket.on('disconnect', () => console.log('disconnected'))
+  socket.on("quiz:prepare", async (settings) => {
+    const gameData = await prepareQuiz(settings, socket);
+    runTimer(gameData.questions.length, socket);
+  });
+  socket.on("disconnect", () => console.log("disconnected"));
 });
 
 httpServer.listen(3002, console.log("socket online"));
-
-
-module.exports = {io}
