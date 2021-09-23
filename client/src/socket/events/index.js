@@ -1,8 +1,7 @@
-import { socket } from "..";
 
-const startGame = (data) => {
-    console.log('should log')
-    socket.emit("startGame", data)
+
+const quizStarted = (questionInfo) => {
+    console.log(questionInfo, 'quiz started')
 }
 
-export {startGame}
+module.exports = { quizStarted }

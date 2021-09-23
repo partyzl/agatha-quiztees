@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
-<<<<<<< HEAD
-// import { Socket } from "socket.io-client";
-// import { initSocket } from '../../socket'
-// import {startGame} from '../../socket/events'
-=======
+import { Socket } from "socket.io-client";
+import { initSocket, socket } from '../../socket'
+import {startGame} from '../../socket/events'
 import { getQuestions } from "../../actions";
 import "./styles.css";
->>>>>>> Staging
 
 const Form = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
-  const [category, setCategory] = useState("generalKnowledge");
+  const [category, setCategory] = useState(9);
   const [players, setPlayers] = useState("player1");
   const [difficulty, setDifficulty] = useState("easy");
   const [question, setQuestions] = useState("boolean");
@@ -32,17 +29,9 @@ const Form = () => {
       type: question,
     };
     event.preventDefault();
-<<<<<<< HEAD
-    // initSocket();
-    // startGame("stuff");
-    //send event to prep game.
-    //console.log(username, category);
+    initSocket();
+    socket.emit('quiz:prepare', settings)
     // history.push("/quiz");
-=======
-    await getQuestions(dispatch, settings);
-    console.log(category);
-    history.push("/quiz");
->>>>>>> Staging
   };
 
   return (
@@ -65,7 +54,7 @@ const Form = () => {
               setCategory(e.target.value);
             }}
           >
-            <option value="9">General Knowledge</option>
+            <option value={9}>General Knowledge</option>
             <option value="10">Books</option>
             <option value="11">Film</option>
             <option value="12">Music</option>

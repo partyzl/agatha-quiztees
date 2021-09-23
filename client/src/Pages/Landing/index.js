@@ -4,17 +4,13 @@ import { Header } from "../../Layout";
 import { Footer } from "../../Layout";
 import { SimpleSlider } from "../../components";
 import { Button } from "../../components";
-import { initSocket } from "../../socket";
-import { startGame } from "../../socket/events";
 import "./style.css";
 
 const Landing = () => {
   let history = useHistory();
 
   const hostQuiz = () => {
-    initSocket()
-    //startGame({hey: 'it is me'})
-    // history.push("/setup");
+    history.push("/setup");
   };
 
   const joinQuiz = () => {
