@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { answerQuestion } from "../../actions";
+import Countdown from "../Countdown";
 import "./style.css";
 
 const QuestionCard = ({ round }) => {
@@ -8,6 +9,7 @@ const QuestionCard = ({ round }) => {
 
   const [selection, setSelection] = useState(null);
   const [optionElements, setOptionElements] = useState();
+  const [input, setInput] = useState('');
 
   const dispatch = useDispatch();
   const options = randomiser([
@@ -62,6 +64,7 @@ const QuestionCard = ({ round }) => {
           dangerouslySetInnerHTML={{ __html: round.question }}
         />
         <div className="choices">{optionElements}</div>
+        <Countdown duration='10000' endAction={(e)=>setInput(e)}/>
       </div>
     </article>
   );
