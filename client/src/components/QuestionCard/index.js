@@ -7,18 +7,12 @@ import "./style.css";
 const QuestionCard = ({ round }) => {
   const answered = useSelector((state) => state.gameplay.answered);
 
-<<<<<<< HEAD
-  const [selection, setSelection] = useState(null);
-  const [optionElements, setOptionElements] = useState();
-  const [input, setInput] = useState("");
-=======
     const answered = useSelector(state => state.gameplay.answered)
 
     const [selection, setSelection] = useState(null)
     const [optionElements, setOptionElements] = useState()
 
     const dispatch = useDispatch()
-    const options = randomiser([round.correct_answer, ...round.incorrect_answers])
 
     useEffect(() => {
         if (selection) { dispatch(answerQuestion(logAnswer())) }
@@ -37,17 +31,10 @@ const QuestionCard = ({ round }) => {
         const classStyling = answered ? answeredClassName : 'unanswered';
         return classStyling
     }
->>>>>>> origin/Staging
 
-  const dispatch = useDispatch();
-  const options = randomiser([
-    round.correct_answer,
-    ...round.incorrect_answers,
-  ]);
-
-  useEffect(() => {
-    if (selection) {
-      dispatch(answerQuestion(""));
+    function isSelected(option) {
+        const classStyling = option == selection ? 'selected' : '';
+        return classStyling
     }
     const renderOptions = () => {
       return options.map((choice) => (
