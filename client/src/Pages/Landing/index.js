@@ -13,8 +13,8 @@ const Landing = () => {
 
   const hostQuiz = () => {
     initSocket()
-    startGame('game is starting!')
-    // history.push("/settings");
+    //startGame({hey: 'it is me'})
+    // history.push("/setup");
   };
 
   const joinQuiz = () => {
