@@ -1,5 +1,4 @@
-import { screen } from '@testing-library/react';
-import { render } from 'react-dom'
+import { screen, render } from "@testing-library/react";
 import Button from '.';
 
 describe('Button', () => {

@@ -1,7 +1,5 @@
-import Form from ".";
+import JoinForm from ".";
 import { screen, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { render } from 'react-dom'
 
 describe("Form layout", () => {
 
@@ -35,6 +33,7 @@ describe("Form layout", () => {
   test("it displays logo", () => {
     expect(screen.getByAltText("Quizzo Logo")).toBeInTheDocument();
   });
+},
 
 describe("Form", () =>{
   
@@ -67,4 +66,4 @@ describe("Form", () =>{
     expect(roomID).toBeInTheDocument();
   });
 
-})
+});

@@ -1,5 +1,5 @@
 import Header from '.';
-import { screen, within } from '@testing-library/react';
+import { screen, render } from "@testing-library/react";
 
 describe('header', () => {
 	beforeEach(() => {
