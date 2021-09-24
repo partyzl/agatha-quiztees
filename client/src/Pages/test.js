@@ -1,5 +1,5 @@
 import { MemoryRouter } from 'react';
-import { screen } from '@testing-library/react';
+import { screen, render } from "@testing-library/react";
 import WaitingRoom from '.';
 
 const getInitState = (host, error) => (
@@ -10,19 +10,19 @@ const getInitState = (host, error) => (
            { username: 'testie 1', host: host, totalScore: 6 }
        ],
        currentPlayer: 'testie 1',
-       roomNumber: 0451,
+       roomNumber: 432432432,
        gameSettings: {categoryName: 'test category', difficulty: 'test difficulty'},
        error: error
    }
 )
 
-describe('WaitingRoomPage', () => {
+describe('WaitingRoom', () => {
 
     beforeAll(() => {
         render(<WaitingRoom />, { wrapper: MemoryRouter })
     })
 
-    it('renders the heading and start button', () => {
+    test('renders the heading and start button', () => {
         const initState = getInitState(true, null)
         const heading = screen.getByText('Waiting Room');
         const button = screen.getByRole('button');
@@ -30,7 +30,7 @@ describe('WaitingRoomPage', () => {
         expect(button).toBeInTheDocument();
     });
 
-    it('renders error message if error is not null', () => {
+    test('renders error message if error is not null', () => {
         const initState = getInitState(true, 'test error message');
         const alert = screen.getByRole('alert');
         expect(alert.textContent).toBe('test error message');

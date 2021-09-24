@@ -1,8 +1,5 @@
-import LeaderBoard from ".";
 import { screen, render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Leaderboardlist } from ".";
-import { render } from 'react-dom'
 
 describe("Renders leaderboard", () => {
    beforeEach(() => {

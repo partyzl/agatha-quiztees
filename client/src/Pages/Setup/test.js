@@ -1,5 +1,4 @@
-import { render } from 'react-dom'
-import {screen, waitFor} from '@testing-library/react'
+import { screen, render } from "@testing-library/react";
 import userEvent from '@testing-library/user-event'
 import axios from 'axios'
 import Setup from '.'
@@ -21,11 +20,11 @@ describe('Quiz Setup', ()=> {
 
     test('renders user input fields', async () => {
         axios.get.mockResolvedValue(mockResponse);
-        const usernameInput = screen.getAllByRole('textbox');
+        const usernameInput = screen.getByRole('text');
         const Btn = screen.getByRole('button');
         const form = screen.getByRole('game-setup')
         const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
-        const usernameInput = screen.getByRole('text');
+        
         const category = screen.getAllByRole('combobox')[0];
         const difficulty = screen.getAllByRole('combobox')[1]; // no combobox but stole this from testing library need to change to get by value
         userEvent.type(usernameInput, 'testUser');
@@ -39,15 +38,14 @@ describe('Quiz Setup', ()=> {
         expect(easyOption.selected).toBe(true);
         expect(form).toBeInTheDocument();
         expect(usernameInput.length).toBe(2);
-        expect(submitBtn).toBeInTheDocument();
+        expect(Btn).toBeInTheDocument();
     })
 
-    test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-});
+    test('fetches categories from axios successfully', async () => {
+            axios.get.mockResolvedValue(mockResponse);
+            expect(axios.get).toHaveBeenCalledWith(expect.stringMatching(/api_category/));
+        
+            const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
+            expect(generalCategory).toBeInTheDocument();
+        });
+})
