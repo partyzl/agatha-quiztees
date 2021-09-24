@@ -3,11 +3,11 @@
 }
 
 .correct {
-  background-color: green;
+  background-color: green !important;
 }
 
-.incorrect {
-  background-color: red;
+button.incorrect {
+  background-color: red !important;
 }
 
 .selected {

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { answerQuestion } from "../../actions";
-// import Countdown from "../Countdown";
 import "./style.css";
 
 const QuestionCard = ({ round, options }) => {
@@ -13,9 +12,10 @@ const QuestionCard = ({ round, options }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (selection) {
-      dispatch(answerQuestion(logAnswer()));
-    }
+    if (selection) { dispatch(answerQuestion(logAnswer())) }
+  }, [selection])
+
+  useEffect(() => {
     const renderOptions = () => {
       return options.map((choice) => (
         <button
@@ -27,8 +27,13 @@ const QuestionCard = ({ round, options }) => {
       ));
     };
     setOptionElements(renderOptions);
-    return () => setSelection(null);
-  }, [(selection, answered, round)]);
+    setSelection(null)
+  }, [answered, round])
+
+  function logAnswer() {
+    const log = selection == round.correct_answer ? "correct" : "incorrect";
+    return log;
+  }
 
   function showAnswer(option) {
     const answeredClassName =
@@ -42,11 +47,6 @@ const QuestionCard = ({ round, options }) => {
     return classStyling;
   }
 
-  function logAnswer() {
-    const log = selection == round.correct_answer ? "correct" : "incorrect";
-    return log;
-  }
-
   function clickHandler(e) {
     setSelection(e.target.innerText);
   }
@@ -58,7 +58,7 @@ const QuestionCard = ({ round, options }) => {
           className="question"
           dangerouslySetInnerHTML={{ __html: round.question }}
         />
-        <div className="choices" onClick="{isSelected}">
+        <div className="choices">
           {optionElements}
         </div>
       </div>
