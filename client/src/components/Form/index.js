@@ -8,7 +8,7 @@ const Form = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(9);
   const [players, setPlayers] = useState("player1");
   const [difficulty, setDifficulty] = useState("easy");
   const [question, setQuestions] = useState("boolean");
@@ -21,7 +21,7 @@ const Form = () => {
       type: question,
     };
     event.preventDefault();
-    await getQuestions(dispatch, settings);
+    await getQuestions(dispatch, settings, username);
     history.push("/quiz");
   };
 
