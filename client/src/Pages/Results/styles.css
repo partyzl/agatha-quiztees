@@ -1,0 +1,32 @@
+.allButtonContainerResults {
+  margin: 4px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (min-width: 1024px) {
+  .buttonCollapse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 70vh;
+    align-content: flex-end;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 2500px) {
+  .buttonCollapseResults {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 70vh;
+    align-content: center;
+    position: absolute;
+  }
+}

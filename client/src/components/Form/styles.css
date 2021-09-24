@@ -1,0 +1,38 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  align-items: stretch;
+  justify-content: center;
+  margin-left: 70vw;
+}
+
+label {
+  color: white;
+  font-size: 25px;
+}
+
+option {
+  font-size: 15px;
+  padding: 5px;
+}
+.submit {
+  margin-top: 25px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    display: flex;
+    justify-content: center;
+  }
+}

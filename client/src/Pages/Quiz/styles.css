@@ -1,0 +1,20 @@
+span {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+.overlay {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: block;
+  border-radius: 10px;
+  max-width: 78%;
+  justify-content: center;
+  margin: 0 auto;
+}
+.quizContainer {
+  margin-top: 10vh;
+  justify-content: center;
+  color: white;
+}

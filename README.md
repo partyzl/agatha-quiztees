@@ -8,9 +8,9 @@ You will be working in small teams to create an online quiz game in React.
 
 [] Users should be able start a game with a limited number of players (this can be from one computer or you may wish to consider use of websockets eg. SocketIO
 
-[] Users should be able to choose the level and topic for their quiz game.
+[x] Users should be able to choose the level and topic for their quiz game.
 
-[] Users should take it in turns to answer trivia questions and after a set number of turns a winner should be declared.
+[x] Users should take it in turns to answer trivia questions and after a set number of turns a winner should be declared.
 
 [] Users scores should be stored in a database at the end of the game
 
@@ -18,11 +18,11 @@ You will be working in small teams to create an online quiz game in React.
 
 ## Your project should meet the following technical requirements:
 
-[] Client to be written using React (Redux is optional)
+[x] Client to be written using React (Redux is optional)
 
-[] A small API connected to a database of scores
+[x] A small API connected to a database of scores
 
-[] Make use of an open API such as Open Trivia DB
+[x] Make use of an open API such as Open Trivia DB
 
 [] Minimum 60% test coverage with an aim of 80%
 
@@ -30,17 +30,20 @@ You will be working in small teams to create an online quiz game in React.
 
 ### Installation
 
+<!-- To begin the development, run `npm start` or `yarn start`.
+To create a production bundle, use `npm run build` or `yarn build`. -->
+
 ### Usage
 
 ## Change Log
 
 ###
 
-- [x] 
+- [x]
 
 ###
 
-- [x]  
+- [x]
 
 # Technologies used
 
@@ -58,5 +61,6 @@ You will be working in small teams to create an online quiz game in React.
 # Wins and Challenges
 
 ## Wins
-
+- Creating a working Quiz app
 ## Challenges
+- Working with Socket IO

@@ -1,0 +1,33 @@
+@media screen and (max-width: 1024px) {
+  .buttonCollapse {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .allButtonContainerLanding {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .buttonCollapse {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .allButtonContainerLanding {
+    display: flex;
+    justify-content: center;
+  }
+}
+/* #D01362 #F7770D */
