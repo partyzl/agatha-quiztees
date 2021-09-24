@@ -1,4 +1,4 @@
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .buttonCollapse {
     display: flex;
     flex-direction: row;
@@ -7,9 +7,12 @@
     justify-content: center;
   }
 
-  .allButtonContainer {
+  .allButtonContainerLanding {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
   }
 }
 
@@ -22,10 +25,9 @@
     justify-content: center;
   }
 
-  .allButtonContainer {
+  .allButtonContainerLanding {
     display: flex;
     justify-content: center;
   }
 }
-
 /* #D01362 #F7770D */
