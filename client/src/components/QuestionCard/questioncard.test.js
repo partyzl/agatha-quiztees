@@ -1,5 +1,16 @@
 import QuestionCard from '.';
-import { render } from 'react-dom'
+import { render } from '@testing-library/react'
+import 'react-redux'
+
+const mockDispatch = jest.fn()
+
+jest.mock('react-redux', () => ({
+    useSelector: jest.fn(),
+    useDispatch: () => mockDispatch
+
+}))
+
+
 
 describe('Question', ()=> {
     const testQuestion={
@@ -16,11 +27,11 @@ describe('Question', ()=> {
     }
     
     beforeEach(() => {
-        render(<QuestionCard question={testQuestion} selected={(e)=>console.log(e)} />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<QuestionCard round={testQuestion} options={["Titus Andronicus", "Othello", "Macbeth", "King Lear"]} />)
     })
     
     test('Checks that it renders a div with a question class', () => {       
         let question = document.querySelector('.question');
-        expect(question).toBeInTheDocument();
+        expect(question).toBeDefined();
     })
 })

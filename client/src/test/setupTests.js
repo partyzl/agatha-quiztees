@@ -16,14 +16,14 @@ import mainReducer from '../reducers/index';
 import questionsReducer from "../reducers/questionsReducer";
 
 jest.mock('axios')
-axios.get.mockResolvedValue({ data: { message: [] }})
+axios.get.mockResolvedValue({ data: { message: [] } })
 
 const TestProviders = ({ initState }) => {
     initState ||= {
-        categories: [], 
-        settings: [], 
+        categories: [],
+        settings: [],
         questions: [],
-        scores: [], 
+        scores: [],
         loading: false,
         currentPlayer: '',
         error: null
@@ -35,7 +35,7 @@ const TestProviders = ({ initState }) => {
     return ({ children }) => (
         <Provider store={testStore}>
             <MemoryRouter>
-                { children }
+                {children}
             </MemoryRouter>
         </Provider>
     )
@@ -44,8 +44,8 @@ const TestProviders = ({ initState }) => {
 const renderWithReduxProvider = (ui, options = {}) => {
     let TestWrapper = TestProviders(options);
     render(ui, { wrapper: TestWrapper, ...options });
-  };
-  
+};
+
 
 global.renderWithReduxProvider = renderWithReduxProvider;
 global.React = React;

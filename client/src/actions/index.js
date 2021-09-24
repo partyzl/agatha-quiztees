@@ -102,4 +102,6 @@ export {
   loadingQuestions,
   loadScores,
   loadingScores,
+  questionsRequest
 };
+

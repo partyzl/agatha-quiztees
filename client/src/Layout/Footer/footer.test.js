@@ -8,6 +8,6 @@ describe("Footer", () => {
 
   test("it shows the copyright logo and agatha-quiztees name", () => {
     const content = screen.queryByText(/© 2021 Agatha-Quiztees Inc /i);
-    expect(content).toBeInTheDocument();
+    expect(content).toBeDefined();
   });
 });

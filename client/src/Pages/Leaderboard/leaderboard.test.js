@@ -10,8 +10,8 @@ describe("Renders leaderboard", () => {
     test("it renders a leaderboard div", () => {
     const div = screen.getByRole("leaderboard");
     const rows = screen.getAllByRole('row');
-    expect(div).toBeInTheDocument(); 
-    expect(results).toBeInTheDocument();
+    expect(div).toBeDefined(); 
+    expect(results).toBeDefined();
     expect(rows.length).toBe(3);
     });
 

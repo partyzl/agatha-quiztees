@@ -26,13 +26,16 @@ const Form = () => {
   };
 
   return (
-    <div className="formContainer">
+    <div role='formContainer' className="formContainer">
       <div className="form">
-        <form onSubmit={submitHandler}>
-          <label htmlFor="uname">Username</label>
+        <form role='form' onSubmit={submitHandler}>
+          <label htmlFor="username">Username</label>
           <input
+            id='username'
+            role='username'
             type="text"
             name="uname"
+            placeholder="Enter Username"
             value={username}
             onChange={(e) => {
               setUsername(e.target.value);
@@ -41,6 +44,8 @@ const Form = () => {
           />
           <label htmlFor="category">Category</label>
           <select
+            id="category"
+            role='categoryDropDown'
             value={category}
             onChange={(e) => {
               setCategory(e.target.value);
@@ -81,6 +86,8 @@ const Form = () => {
 
           <label htmlFor="difficulty">Difficulty</label>
           <select
+            id='difficulty'
+            role='diffDropDown'
             value={difficulty}
             onChange={(e) => {
               setDifficulty(e.target.value);
@@ -100,7 +107,7 @@ const Form = () => {
             <option value="boolean">True or False</option>
             <option value="multiple">Multiple Choice</option>
           </select>
-          <input className="submit" type="submit" />
+          <input aria-label="new game" className="submit" type="submit" />
         </form>
       </div>
     </div>

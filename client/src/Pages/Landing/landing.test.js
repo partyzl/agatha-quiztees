@@ -16,7 +16,7 @@ describe('Landing', () => {
 
     test('renders page buttons', () => {
         const button = screen.queryByRole('button')
-        expect(button).toBeInTheDocument()
+        expect(button).toBeDefined()
         expect(screen.getAllByRole('button').length).toBe(4);
     });
 
@@ -45,7 +45,7 @@ describe('Landing', () => {
     });
 
     test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
+        // expect().toBeDefined();
         // expect().toHaveBeenCalledTimes(1);
         // expect().toBe();
         // expect().toContain();

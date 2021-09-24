@@ -1,24 +1,36 @@
 import { screen, render } from "@testing-library/react";
 import Results from '.'
-import {Button} from '../../components/Button';
+import { Button } from '../../components/Button';
+import 'react-redux'
 
 jest.mock('axios');
 
-const initState = {
-    socket: { on: jest.fn(), emit: jest.fn() },
-    players: [
-        { username: 'testie1', host: true, totalScore: 6 },
-        { username: 'testie2', host: false, totalScore: 14 }
-    ],
-    currentPlayer: 'testie1',
-    roomNumber: 432434342,
-    results: [6, 14],
-    gameSettings: {categoryName: 'test category', difficulty: 'test difficulty'}
-}
+const mockDispatch = jest.fn()
+const mockQuizData = { settings: { difficulty: 'easy' } }
+const mockGameData = { answers: ['incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect'] }
 
-describe('Name for test suite', ()=> {
+jest.fn().mock
+
+jest.mock('react-redux', () => ({
+    useSelector: jest.fn().mockImplementationOnce({ answers: ['incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect', 'incorrect'] }).mockImplementationOnce({ settings: { difficulty: 'easy' } }),
+    useDispatch: () => mockDispatch
+}))
+
+// const initState = {
+//     socket: { on: jest.fn(), emit: jest.fn() },
+//     players: [
+//         { username: 'testie1', host: true, totalScore: 6 },
+//         { username: 'testie2', host: false, totalScore: 14 }
+//     ],
+//     currentPlayer: 'testie1',
+//     roomNumber: 432434342,
+//     results: [6, 14],
+//     gameSettings: {categoryName: 'test category', difficulty: 'test difficulty'}
+// }
+
+describe('Name for test suite', () => {
     beforeEach(() => {
-        render(<Results />, { initState });
+        render(<Results />);
     })
 
     test('renders headings', () => {
@@ -41,8 +53,8 @@ describe('Name for test suite', ()=> {
         expect(button.length).toBe(2);
     });
 
-    test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
+    test('What you want to test', () => {
+        // expect().toBeDefined();
         // expect().toHaveBeenCalledTimes(1);
         // expect().toBe();
         // expect().toContain();

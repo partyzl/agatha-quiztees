@@ -7,6 +7,6 @@ describe('header', () => {
 	});
 	test('Our H1 is present', () => {
 		let strapline = screen.getByLabelText('quiz-title');
-		expect(strapline).toBeInTheDocument();
+		expect(strapline).toBeDefined();
 	});
 });

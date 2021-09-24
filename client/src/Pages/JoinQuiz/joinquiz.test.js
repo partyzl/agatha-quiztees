@@ -16,13 +16,13 @@ describe('Name for test suite', ()=> {
         const Btn = screen.getByRole('button');
         const roomID = screen.getByLabelText('roomId')
 
-        expect(roomID).toBeInTheDocument();
+        expect(roomID).toBeDefined();
         expect(usernameInput.length).toBe(1);
-        expect(Btn).toBeInTheDocument();
+        expect(Btn).toBeDefined();
     })
 
     test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
+        // expect().toBeDefined();
         // expect().toHaveBeenCalledTimes(1);
         // expect().toBe();
         // expect().toContain();

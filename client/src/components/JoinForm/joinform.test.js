@@ -10,28 +10,28 @@ describe("Form layout", () => {
 
   test("it renders a form", () => {
     let form = screen.getByRole("form");
-    expect(form).toBeInTheDocument();
+    expect(form).toBeDefined();
   });
 
   test("it renders the username field", () => {
     renderWithReduxProvider(<Form />);
     const usernameTextbox = screen.getByRole("username");
-    expect(usernameTextbox).toBeInTheDocument();
+    expect(usernameTextbox).toBeDefined();
   });
 
 
   test("Username label exists", () => {
     let usernameInput = screen.getByLabelText("Username:");
-    expect(usernameInput).toBeInTheDocument();
+    expect(usernameInput).toBeDefined();
   });
 
   test("RoomID label exists", () => {
     let usernameInput = screen.getByLabelText("Username:");
-    expect(usernameInput).toBeInTheDocument();
+    expect(usernameInput).toBeDefined();
   });
 
   test("it displays logo", () => {
-    expect(screen.getByAltText("Quizzo Logo")).toBeInTheDocument();
+    expect(screen.getByAltText("Quizzo Logo")).toBeDefined();
   });
 },
 
@@ -50,20 +50,20 @@ describe("Form", () =>{
   test("it renders the form div", () => {
     render(<JoinForm/>, { initState })
     const formDiv = screen.getByRole("formContainer");
-    expect(formDiv).toBeInTheDocument();
+    expect(formDiv).toBeDefined();
   });
 
 
   test('it renders a form with no users in state', () => {
     render(<JoinForm/>, { initState })
     let form = screen.getByRole('form');
-    expect(form).toBeInTheDocument();
+    expect(form).toBeDefined();
   });
 
   test("it renders the Room ID", () => {
     render(<JoinForm/>, { initState })
     const roomID = screen.getByLabelText("roomId");
-    expect(roomID).toBeInTheDocument();
+    expect(roomID).toBeDefined();
   });
 
 });

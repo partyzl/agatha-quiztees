@@ -26,8 +26,8 @@ describe('WaitingRoom', () => {
         const initState = getInitState(true, null)
         const heading = screen.getByText('Waiting Room');
         const button = screen.getByRole('button');
-        expect(heading).toBeInTheDocument();
-        expect(button).toBeInTheDocument();
+        expect(heading).toBeDefined();
+        expect(button).toBeDefined();
     });
 
     test('renders error message if error is not null', () => {

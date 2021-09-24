@@ -8,6 +8,6 @@ describe("Renders leaderboard", () => {
 
   test("it renders a table tag", () => {
     const div = screen.getByLabelText("leaderboard-item");
-    expect(div).toBeInTheDocument();
+    expect(div).toBeDefined();
   });
 });

@@ -36,9 +36,9 @@ describe('Quiz Setup', ()=> {
         expect(usernameInput.value).toBe('testUser');
         expect(generalCategory.selected).toBe(true);
         expect(easyOption.selected).toBe(true);
-        expect(form).toBeInTheDocument();
+        expect(form).toBeDefined();
         expect(usernameInput.length).toBe(2);
-        expect(Btn).toBeInTheDocument();
+        expect(Btn).toBeDefined();
     })
 
     test('fetches categories from axios successfully', async () => {
@@ -46,6 +46,6 @@ describe('Quiz Setup', ()=> {
             expect(axios.get).toHaveBeenCalledWith(expect.stringMatching(/api_category/));
         
             const generalCategory = await screen.findByRole('option', { name: 'General Knowledge' });
-            expect(generalCategory).toBeInTheDocument();
+            expect(generalCategory).toBeDefined();
         });
 })

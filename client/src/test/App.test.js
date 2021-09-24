@@ -22,12 +22,12 @@ describe('App', ()=> {
         test('it renders error if error exists', () => {
             const initState = { loading: true, doggos: [], error: new Error('Bad Things') }
             const error = screen.getByRole('alert')
-            expect(error).toBeInTheDocument()
+            expect(error).toBeDefined()
             expect(error.textContent).toBe('Bad Things')
         })
 
     test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
+        // expect().toBeDefined();
         // expect().toHaveBeenCalledTimes(1);
         // expect().toBe();
         // expect().toContain();
@@ -43,5 +43,5 @@ describe('App', ()=> {
 //     </Provider>
 //   );
 
-//   expect(getByText(/learn/i)).toBeInTheDocument();
+//   expect(getByText(/learn/i)).toBeDefined();
 // });
