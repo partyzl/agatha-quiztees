@@ -37,6 +37,7 @@ const Form = () => {
             onChange={(e) => {
               setUsername(e.target.value);
             }}
+            required
           />
           <label htmlFor="category">Category</label>
           <select

@@ -1,13 +1,14 @@
 import Countdown from '.';
-import { render } from 'react-dom'
+import { render } from "@testing-library/react";'
 
 describe('Countdown', ()=> {
+    const stubHandleClick = jest.fn();
     beforeEach(() => {
         render(<Countdown duration={1000} endAction={stubHandleClick}/>);
     })
 
     test('it calls a handleClick prop when time finish', () => {
-        const stubHandleClick = jest.fn();
+        
         setTimeout(() => {
             expect(stubHandleClick).toHaveBeenCalledTimes(1);
           }, 1005);

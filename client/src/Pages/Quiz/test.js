@@ -1,35 +1,35 @@
-import { render } from 'react-dom'
-import {screen, waitFor} from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
-import axios from 'axios'
+import { screen, render } from "@testing-library/react";
+import { Quiz } from '.';
+
+const initState = {
+    questions: [
+        {
+            question: 'question 1',
+            correct_answer: 'answer 1',
+            incorrect_answers: ['answer 2', 'answer 3', 'answer 4']
+        },
+        {
+            question: 'question 2',
+            correct_answer: 'answer 2',
+            incorrect_answers: ['answer 1', 'answer 3', 'answer 4']
+        }
+    ],
+    players: [{ totalScore: 1 }],
+    gameSettings: { categoryName: 'test category', difficulty: 'easy' }
+};
 
 describe('Name for test suite', ()=> {
     beforeEach(() => {
-        render(<Quiz />) // , { initState } this might change, may also want to have it render a different init state based on the test
+        render(<Quiz />, { initState }) // , { initState } this might change, may also want to have it render a different init state based on the test
     })
-
-    test('QuestionCard renders on page', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-
-    test('Countdown timer renders on page', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
-
-    test('Tells the user their question or asks them to wait for their turn', () => {
-        expect(screen.getByRole('span')).toBeInTheDocument();
-        // then check value of heading
-    })
+    
+    test('displays the category and difficulty', () => {
+            const category = screen.getByRole();
+            const difficulty = screen.getByRole();
+            expect(category.textContent).toContain('test category');
+            expect(difficulty.textContent).toContain('Easy')
+        });
+    });
 
     test('Moves to next question on submit', () =>{
         // expect().toBeInTheDocument();
@@ -58,12 +58,4 @@ describe('Name for test suite', ()=> {
         // expect().toBeInstanceOf();
     })
 
-    test('What you want to test', () =>{
-        // expect().toBeInTheDocument();
-        // expect().toHaveBeenCalledTimes(1);
-        // expect().toBe();
-        // expect().toContain();
-        // expect().toEqual();
-        // expect().toBeInstanceOf();
-    })
 })

@@ -57,10 +57,6 @@ const Results = () => {
         return score * difficultyMultiplier;
     }
 
-
-
-
-
     async function playAgain() {
         await getQuestions(dispatch, quizData.settings)
         document.location = '/quiz'
