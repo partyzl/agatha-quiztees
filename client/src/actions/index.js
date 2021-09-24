@@ -1,11 +1,10 @@
 // --------------------for gameplayReducer-----------------------------------//
 
 
-const answerQuestion = (answers, score, stats) => ({
+const answerQuestion = (answer, score, stats) => ({
   type: "ANSWER_QUESTION",
   payload: {
-    answers: answers,
-
+    answer: answer,
     score: score,
     stats: stats,
   },
@@ -15,9 +14,12 @@ const nextQuestion = () => ({ type: "NEXT_QUESTION" });
 
 // --------------------for questionsReducer--------------------------//
 
-const loadingQuestions = (settings) => ({
+const loadingQuestions = (settings, username) => ({
   type: "LOADING_QUESTIONS",
-  payload: settings,
+  payload: {
+    settings: settings,
+    username: username
+  }
 });
 
 const loadQuestions = (questions) => ({
@@ -37,9 +39,9 @@ const setError = (err) => ({ type: "SET_ERROR", payload: `oh no! ${err}` });
 
 //----------------------------------------------------------------------------//
 
-const getQuestions = async (dispatch, settings) => {
+const getQuestions = async (dispatch, settings, username) => {
   try {
-    dispatch(loadingQuestions(settings));
+    dispatch(loadingQuestions(settings, username));
     const questions = await questionsRequest(settings);
     dispatch(loadQuestions(questions));
   } catch (err) {
