@@ -32,6 +32,7 @@ const QuestionCard = ({ round, options }) => {
 
   function logAnswer() {
     const log = selection == round.correct_answer ? "correct" : "incorrect";
+    console.log(log)
     return log;
   }
 

@@ -53,7 +53,7 @@ const Quiz = () => {
             reset={reset}
           />
           <QuestionCard round={currentQuestion} options={options} />
-          <span>Question: {currentIndex}</span>
+          <span>Question: {currentIndex + 1}</span>
         </div>
       </div>
     </div>

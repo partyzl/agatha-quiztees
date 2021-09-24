@@ -9,7 +9,6 @@ const Results = () => {
     const gameData = useSelector(state => state.gameplay)
     const quizData = useSelector(state => state.quizInfo)
 
-    //const [playerScore, setPlayerScore] = useState()
     const [result, setResult] = useState()
     const [resultsBoard, setResultsBoard] = useState()
 
@@ -17,8 +16,8 @@ const Results = () => {
     useEffect(() => {
         if (!result) {
             setResult({
-                username: 'bob',
-                category: 'category goes here',
+                username: quizData.username,
+                category: quizData.questions[0].category,
                 score: calculateScores()
             })
         } else {
@@ -54,6 +53,7 @@ const Results = () => {
             }
         }
         const score = streak < quizData.questions.length * 0.5 ? correctAnswers + 0 : correctAnswers;
+        console.log(score)
         return score * difficultyMultiplier;
     }
 
@@ -70,6 +70,9 @@ const Results = () => {
 
     return (
         <div className="allButtonContainerResults">
+            <div className="scoreTable">
+                {resultsBoard}
+            </div>
             <div className="buttonCollapseResults">
                 <Button onClick={playAgain} value="play again" />
                 <Button onClick={goHome} value="return home" />
