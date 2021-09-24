@@ -31,6 +31,7 @@ const JoinForm = () => {
             onChange={(e) => {
               setRoomId(e.target.value);
             }}
+            required
           ></input>
 
           <label htmlFor="uname">Username</label>
@@ -38,6 +39,7 @@ const JoinForm = () => {
             type="text"
             name="uname"
             value={username}
+            required
             onChange={(e) => {
               setUsername(e.target.value);
             }}
