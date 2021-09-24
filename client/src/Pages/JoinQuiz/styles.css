@@ -1,3 +1,19 @@
 .footer {
   margin-top: 40vh;
 }
+
+.buttonContainer{
+  display:flex;
+}
+
+.buttonLeft {
+  display: flex;
+  width: 50%;
+  align-content: flex-start;
+}
+
+.buttonRight {
+  display: flex;
+  width: 50%;
+  align-content: flex-end;
+}
