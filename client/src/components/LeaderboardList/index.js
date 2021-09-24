@@ -9,7 +9,9 @@ const LeaderboardList = ({ scores }) => {
         <table>
           <tr>
             <td>{scores.username}</td>
+
             <td>{scores.category}</td>
+
             <td>{scores.score}</td>
           </tr>
         </table>

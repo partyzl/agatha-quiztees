@@ -24,9 +24,10 @@ const Leaderboard = () => {
       <Header />
       <div className="flex-container">
         <h1> LEADERBOARD </h1>
-
-        {error ? <p>{error}</p> : scoreLine}
-        {/* <Footer /> */}
+        <div className="overlay">
+          {error ? <p>{error}</p> : scoreLine}
+          {/* <Footer /> */}
+        </div>
       </div>
       <Footer />
     </>
