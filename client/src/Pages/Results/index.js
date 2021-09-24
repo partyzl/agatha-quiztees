@@ -17,7 +17,7 @@ const Results = () => {
         if (!result) {
             setResult({
                 username: quizData.username,
-                category:  quizData.questions[0].category,
+                category: quizData.questions[0].category,
                 score: calculateScores()
             })
         } else {
@@ -53,7 +53,7 @@ const Results = () => {
             }
         }
         const score = streak < quizData.questions.length * 0.5 ? correctAnswers + 0 : correctAnswers;
-       console.log(score)
+        console.log(score)
         return score * difficultyMultiplier;
     }
 
@@ -70,7 +70,9 @@ const Results = () => {
 
     return (
         <div className="allButtonContainerResults">
-            {resultsBoard}
+            <div className="scoreTable">
+                {resultsBoard}
+            </div>
             <div className="buttonCollapseResults">
                 <Button onClick={playAgain} value="play again" />
                 <Button onClick={goHome} value="return home" />
