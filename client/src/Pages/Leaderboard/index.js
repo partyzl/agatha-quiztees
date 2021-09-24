@@ -25,7 +25,6 @@ const Leaderboard = () => {
       <div className="flex-container">
         <h1> LEADERBOARD </h1>
 
-        <LeaderboardList />
         {error ? <p>{error}</p> : scoreLine}
         {/* <Footer /> */}
       </div>

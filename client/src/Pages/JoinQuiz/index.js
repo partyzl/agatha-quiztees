@@ -13,17 +13,11 @@ const JoinQuiz = () => {
       <Header />
       <JoinForm />
       <div className="buttonContainer">
-        <div className="buttonLeft">
-          <Button
-            className="joinQuiz"
-            value="Join Quiz"
-            onClick={WaitingRoom}
-          />
-        </div>
-        <div className="buttonRight">
-          <Button className="backButton" value="Back" onClick={Landing} />
-        </div>
+        <Button className="joinQuiz" value="Join Quiz" onClick={WaitingRoom} />
+
+        <Button className="backButton" value="Back" onClick={Landing} />
       </div>
+
       <Footer />
     </>
   );

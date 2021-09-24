@@ -2,8 +2,10 @@
   margin-top: 40vh;
 }
 
-.buttonContainer{
-  display:flex;
+.buttonContainer {
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
 .buttonLeft {

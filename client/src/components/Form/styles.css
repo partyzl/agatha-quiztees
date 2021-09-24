@@ -9,7 +9,7 @@
 form {
   display: flex;
   flex-direction: column;
-  width: 30vw;
+  width: 60vw;
   align-items: stretch;
   justify-content: center;
   margin-left: 70vw;
@@ -28,4 +28,11 @@ option {
   margin-top: 25px;
   margin-bottom: 30px;
   font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .form {
+    display: flex;
+    justify-content: center;
+  }
 }
